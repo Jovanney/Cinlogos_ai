@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export function NavbarDemo() {
   return (
-    <div className="absolute top-0 left-0 right-0 w-full z-50 py-4 lg:py-0 bg-primary-foreground px-3">
+    <div className="absolute top-0 left-0 right-0 w-full z-50 py-4 lg:py-0 bg-primary-foreground px-3 lg:px-0">
       <div className="hidden lg:flex  items-center justify-between px-10 h-[100px] dark:bg-black/30  bg-white/30 border-b">
         <Satellite size={28} className="cursor-pointer" />
         <Navbar />
