@@ -3,17 +3,68 @@ import React, { useState } from "react";
 import { cn } from "@/utils/cn";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/nav-bar-menu";
 import { ModeToggle } from "./ui/toggle-theme-button";
-import Image from "next/image";
-import NavBarIconBlack from "@/public/logo-black.png";
-import NavBarIconWhite from "@/public/logo-white.png";
-import { useTheme } from "next-themes";
+
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Button } from "./ui/button";
+import { MenuIcon, MountainIcon, Satellite } from "lucide-react";
+import Link from "next/link";
 
 export function NavbarDemo() {
   return (
-    <div className="absolute top-0 left-0 right-0 w-full z-50 flex items-center justify-between px-10 h-[100px] dark:bg-black/30  bg-white/30 border-b">
-      <p className="text-2xl font-semibold text-white ">Cin Logos</p>
-      <Navbar />
-      <ModeToggle />
+    <div className="absolute top-0 left-0 right-0 w-full z-50 py-4 lg:py-0 bg-primary-foreground px-3">
+      <div className="hidden lg:flex  items-center justify-between px-10 h-[100px] dark:bg-black/30  bg-white/30 border-b">
+        <Satellite size={28} className="cursor-pointer" />
+        <Navbar />
+        <ModeToggle />
+      </div>
+      <div className="block lg:hidden">
+        <Sheet>
+          <div className="flex items-center justify-between">
+            <SheetTrigger asChild>
+              <Button className="lg:hidden" size="icon" variant="outline">
+                <MenuIcon className="h-6 w-6" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+
+            <Satellite className="cursor-pointer" />
+          </div>
+          <SheetContent side="left">
+            <Link className="mr-6 hidden lg:flex" href="#">
+              <MountainIcon className="h-6 w-6" />
+              <span className="sr-only">Acme Inc</span>
+            </Link>
+            <div className="grid gap-2 py-6">
+              <Link
+                className="flex w-full items-center py-2 text-lg font-semibold"
+                href="#"
+              >
+                Home
+              </Link>
+              <Link
+                className="flex w-full items-center py-2 text-lg font-semibold"
+                href="#"
+              >
+                About
+              </Link>
+              <Link
+                className="flex w-full items-center py-2 text-lg font-semibold"
+                href="#"
+              >
+                Services
+              </Link>
+              <Link
+                className="flex w-full items-center py-2 text-lg font-semibold"
+                href="#"
+              >
+                Contact
+              </Link>
+
+              <ModeToggle />
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
     </div>
   );
 }
