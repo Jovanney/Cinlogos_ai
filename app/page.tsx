@@ -9,9 +9,9 @@ export default function Home() {
           Welcome to the CinLogos AI <br /> Get{" "}
           <FlipWords
             words={[
-              "Innovatives",
-              "Inspirings",
-              "Elegants",
+              "Innovations",
+              "Inspirations",
+              "Elegances",
               "Moderns",
               "Professionals",
             ]}
