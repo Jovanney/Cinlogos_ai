@@ -65,7 +65,7 @@ const cards = [
   {
     id: 1,
     content: <SkeletonOne />,
-    className: "md:col-span-2",
+    className: "md:col-span-1",
     thumbnail: mockedImage.src,
   },
   {
@@ -83,7 +83,73 @@ const cards = [
   {
     id: 4,
     content: <SkeletonFour />,
-    className: "md:col-span-2",
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 5,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 6,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 7,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 8,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 9,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 10,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 11,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 12,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 13,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 14,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
+    thumbnail: mockedImage.src,
+  },
+  {
+    id: 15,
+    content: <SkeletonFour />,
+    className: "md:col-span-1",
     thumbnail: mockedImage.src,
   },
 ];

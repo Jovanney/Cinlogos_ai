@@ -4,7 +4,7 @@ import { cn } from "@/utils/cn";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/nav-bar-menu";
 import { ModeToggle } from "./ui/toggle-theme-button";
 
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import { MenuIcon, MountainIcon, Satellite } from "lucide-react";
 import Link from "next/link";
@@ -29,45 +29,50 @@ export function NavbarDemo() {
               </Button>
             </SheetTrigger>
 
-            <Satellite className="cursor-pointer" />
+            <Link className="mr-6 hidden lg:flex" href="/">
+              <Satellite className="cursor-pointer" />
+            </Link>
           </div>
           <SheetContent side="left">
-            <Link className="mr-6 hidden lg:flex" href="/">
-              <MountainIcon className="h-6 w-6" />
-              <span className="sr-only">Acme Inc</span>
-            </Link>
+            <SheetClose>
+              <Link className="mr-6 hidden lg:flex" href="/">
+                <MountainIcon className="h-6 w-6" />
+                <span className="sr-only">Acme Inc</span>
+              </Link>
+            </SheetClose>
             <div className="grid gap-2 py-6">
-              <Link
-                className="flex w-full items-center py-2 text-lg font-semibold"
-                href="/"
-              >
-                Home
-              </Link>
-              <Link
-                className="flex w-full items-center py-2 text-lg font-semibold"
-                href="/galery"
-              >
-                Galery
-              </Link>
-              <Link
-                className="flex w-full items-center py-2 text-lg font-semibold"
-                href="#"
-              >
-                About
-              </Link>
-              <Link
-                className="flex w-full items-center py-2 text-lg font-semibold"
-                href="#"
-              >
-                Services
-              </Link>
-              <Link
-                className="flex w-full items-center py-2 text-lg font-semibold"
-                href="#"
-              >
-                Contact
-              </Link>
-
+              <SheetClose>
+                <Link
+                  className="flex w-full items-center py-2 text-lg font-semibold"
+                  href="/"
+                >
+                  Home
+                </Link>
+              </SheetClose>
+              <SheetClose>
+                <Link
+                  className="flex w-full items-center py-2 text-lg font-semibold"
+                  href="/galery"
+                >
+                  Galery
+                </Link>
+              </SheetClose>
+              <SheetClose>
+                <Link
+                  className="flex w-full items-center py-2 text-lg font-semibold"
+                  href="/services"
+                >
+                  Services
+                </Link>
+              </SheetClose>
+              <SheetClose>
+                <Link
+                  className="flex w-full items-center py-2 text-lg font-semibold"
+                  href="/pricing"
+                >
+                  Pricing
+                </Link>
+              </SheetClose>
               <ModeToggle />
             </div>
           </SheetContent>
