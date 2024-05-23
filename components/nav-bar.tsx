@@ -13,7 +13,9 @@ export function NavbarDemo() {
   return (
     <div className="absolute top-0 left-0 right-0 w-full z-50 py-4 lg:py-0 bg-primary-foreground px-3 lg:px-0">
       <div className="hidden lg:flex  items-center justify-between px-10 h-[100px] dark:bg-black/30  bg-white/30 border-b">
-        <Satellite size={28} className="cursor-pointer" />
+        <Link href={"/"}>
+          <Satellite size={28} className="cursor-pointer" />
+        </Link>
         <Navbar />
         <ModeToggle />
       </div>
@@ -30,16 +32,22 @@ export function NavbarDemo() {
             <Satellite className="cursor-pointer" />
           </div>
           <SheetContent side="left">
-            <Link className="mr-6 hidden lg:flex" href="#">
+            <Link className="mr-6 hidden lg:flex" href="/">
               <MountainIcon className="h-6 w-6" />
               <span className="sr-only">Acme Inc</span>
             </Link>
             <div className="grid gap-2 py-6">
               <Link
                 className="flex w-full items-center py-2 text-lg font-semibold"
-                href="#"
+                href="/"
               >
                 Home
+              </Link>
+              <Link
+                className="flex w-full items-center py-2 text-lg font-semibold"
+                href="/galery"
+              >
+                Galery
               </Link>
               <Link
                 className="flex w-full items-center py-2 text-lg font-semibold"
