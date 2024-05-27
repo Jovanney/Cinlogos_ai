@@ -35,6 +35,7 @@ export function ThreeDCardLogo({
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
+            priority
             src={imageSrc}
             height="1000"
             width="1000"
