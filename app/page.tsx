@@ -7,16 +7,7 @@ export default function Home() {
       <div className="max-w-2xl mx-auto p-4">
         <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
           Welcome to the CinLogos AI <br /> Get{" "}
-          <FlipWords
-            words={[
-              "Innovations",
-              "Inspirations",
-              "Elegances",
-              "Moderns",
-              "Professionals",
-            ]}
-          />{" "}
-          Logos
+          <FlipWords words={["Perfects", "Moderns", "Professionals"]} /> Logos
         </div>
 
         <p className="dark:text-neutral-400 text-gray-300 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
