@@ -8,6 +8,12 @@ import urbanBeat from "@/public/logo-04.jpg";
 import greenHorizonFarms from "@/public/logo-05.jpg";
 import TechPulse from "@/public/logo-06.jpg";
 import EcoVibe from "@/public/logo-09.jpg";
+import EcoTech from "@/public/logo-10.jpg";
+import laBelleCuisine from "@/public/logo-11.jpg";
+import dragonSpriteDojo from "@/public/logo-12.jpg";
+import EcoTechSolution from "@/public/logo-13.jpg";
+import LaBelleCuisine from "@/public/logo-14.jpg";
+import DragonSpiritDojo from "@/public/logo-15.jpg";
 import { ThreeDCardLogo } from "@/components/card-logo";
 
 interface cardProps {
@@ -80,6 +86,48 @@ const cardsData: cardProps[] = [
     prompt:
       "Create a logo for EcoVibe Apparel that is eco-friendly and trendy, capturing the essence of sustainable fashion and modern lifestyle. Include graphic elements such as leaf motifs and minimalist lines. Use earth tones like green, brown, and beige. The logo should be versatile for use on clothing labels, shopping bags, and social media profiles.",
     imageSrc: EcoVibe.src,
+  },
+  {
+    title: "EcoTech Solutions",
+    ia: "Tess Ai ",
+    prompt:
+      "Create a logo for EcoTech Solutions that is modern and clean, reflecting our commitment to sustainability and technological innovation. Use visual elements such as solar panels or leaves. Use green and blue colors to symbolize nature and technology. The logo should convey progress and environmental responsibility.",
+    imageSrc: EcoTech.src,
+  },
+  {
+    title: " La Belle Cuisine",
+    ia: "Tess Ai ",
+    prompt:
+      "Create a logo for La Belle Cuisine that is elegant and sophisticated, exuding fine French cuisine. Include elements such as a stylized fork or a cloche. Use classic colors like black, gold, and white. The design should be timeless and refined with elegant typography",
+    imageSrc: laBelleCuisine.src,
+  },
+  {
+    title: "Dragon Spirit Dojo",
+    ia: "Tess Ai ",
+    prompt:
+      "Create a logo for Dragon Spirit Dojo that is dynamic and impactful, capturing the essence of martial arts and the dojo's philosophy. Include elements such as dragons or silhouettes of practitioners in action. Use red, black, and white colors. The design should reflect strength, discipline, and tradition. The typography should be robust and harmonious with the visual elements",
+    imageSrc: dragonSpriteDojo.src,
+  },
+  {
+    title: "EcoTech Solutions",
+    ia: "Fotor",
+    prompt:
+      "Create a logo for EcoTech Solutions that is modern and clean, reflecting our commitment to sustainability and technological innovation. Use visual elements such as solar panels or leaves. Use green and blue colors to symbolize nature and technology. The logo should convey progress and environmental responsibility. also insert my brand name EcoTech Solutionlogo.",
+    imageSrc: EcoTechSolution.src,
+  },
+  {
+    title: " La Belle Cuisine",
+    ia: "Fotor",
+    prompt:
+      "Create a logo for La Belle Cuisine that is elegant and sophisticated, exuding fine French cuisine. Include elements such as a stylized fork or a cloche. Use classic colors like black, gold, and white. The design should be timeless and refined with elegant typography. also insert my brand name La Belle Cuisine on logo.",
+    imageSrc: LaBelleCuisine.src,
+  },
+  {
+    title: "Dragon Spirit Dojo",
+    ia: "Fotor",
+    prompt:
+      ": Create a logo for Dragon Spirit Dojo that is dynamic and impactful, capturing the essence of martial arts and the dojo's philosophy. Include elements such as dragons or silhouettes of practitioners in action. Use red, black, and white colors. The design should reflect strength, discipline, and tradition. The typography should be robust and harmonious with the visual elements. also insert my brand name Dragon Spirit Dojo on logo.",
+    imageSrc: DragonSpiritDojo.src,
   },
 ];
 
