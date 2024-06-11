@@ -26,6 +26,12 @@ import greenLeaf2 from "@/public/green-leaf-v2.jpeg";
 import calegarioGamesv2 from "@/public/calegario-games-v2.jpeg";
 import lojaBeat from "@/public/loja-beat.jpeg";
 import lojaBeatv2 from "@/public/loja-beat-v2.jpeg";
+import lesen from "@/public/LESEN.png";
+import Dalilah from "@/public/dalilah.png";
+import Dalilah2 from "@/public/FLOWERSHOP-SDXL-1.png";
+import ecotechv2 from "@/public/ecotechv2.jpg";
+import laBelleCuisinev2 from "@/public/labelev2.jpg";
+import urbanBeatv2 from "@/public/urbanbeatv2.jpg";
 
 interface cardProps {
   title: string;
@@ -42,16 +48,6 @@ const cardsData: cardProps[] = [
       "Create a minimalist and modern logo for a company named GreenLeaf Organics, which is in the health and wellness industry. The logo should include earth tones like green and brown, and avoid bright neon colors. It should use a clean sans-serif font and include a leaf or plant element. The logo should convey a sense of trust and freshness, and be simple yet memorable. The logo should be provided on a white background.",
     imageSrc: greenLaf.src,
   },
-  {
-    title: "Green Laf V2",
-    ia: "Copilot",
-    prompt: `Design a unique and visually appealing logo for GreenLeaf Organics, a company in the health and wellness industry. The logo should incorporate earth tones like green and brown, avoiding bright neon colors, to reflect the brand's commitment to natural and organic products. Use a clean sans-serif font to ensure a modern and minimalist aesthetic.
-
-    Include a leaf or plant element to symbolize growth, health, and freshness, conveying a sense of trust and vitality. The logo should be simple yet memorable, effectively resonating with our target audience of health-conscious consumers seeking organic and natural products.
-
-    provide the logo on a white background.`,
-    imageSrc: greenLeaf2.src,
-  },
 
   {
     title: "Calegario games",
@@ -60,14 +56,7 @@ const cardsData: cardProps[] = [
       "Create a minimalist and modern logo for a company named Calegario Games, which is in the game industry. The logo should include joysticks and colors like blue and purple, and bright neon colors. It should use a clean sans-serif font and include a game-related element. The logo should convey a sense of creativity and excitement, and be simple yet memorable. The logo should be provided on a white background.",
     imageSrc: calegarioGames.src,
   },
-  {
-    title: "Calegario games V2",
-    ia: "Copilot",
-    prompt: `Design a modern and minimalist logo for Calegario Games, a company in the gaming industry. The logo should reflect the brand's commitment to simplicity and elegance, using clean lines and typography to convey a sense of sophistication. Incorporate elements like joysticks and other game-related symbols to evoke creativity and excitement. Use colors like blue and purple, including bright neon shades, to make the logo vibrant and appealing.
 
-    The logo should feature a clean sans-serif font and be simple yet memorable, effectively resonating with our target audience of gamers and enthusiasts. Please provide the logo on a white background.`,
-    imageSrc: calegarioGamesv2.src,
-  },
   {
     title: "Loja Beat",
     ia: "Copilot",
@@ -76,16 +65,7 @@ const cardsData: cardProps[] = [
     The color palette should include vibrant and energetic colors like electric blue, neon green, or bright orange to capture attention and convey excitement. The logo should be simple yet memorable, effectively resonating with our target audience of tech-savvy and trend-conscious consumers. Please provide the logo on a white background.`,
     imageSrc: lojaBeat.src,
   },
-  {
-    title: "Loja Beat V2",
-    ia: "Copilot",
-    prompt: `Design a unique, modern, and visually appealing logo for LOJA BEAT, a cutting-edge retail store. The logo should reflect the brand's focus on innovation and contemporary style, incorporating dynamic elements such as geometric shapes, abstract forms, or tech-inspired symbols to convey a sense of forward-thinking and energy.
 
-    Use a clean, bold sans-serif font to maintain a modern aesthetic. The color palette should include vibrant and energetic colors like electric blue, neon green, or bright orange to capture attention and convey excitement.
-
-    The logo should be simple yet memorable, effectively resonating with our target audience of tech-savvy and trend-conscious consumers. Please provide the logo on a white background, ensuring it embodies the essence of our brand and core values.`,
-    imageSrc: lojaBeatv2.src,
-  },
   {
     title: "EcoTech Solutions",
     ia: "DeepAi",
@@ -212,6 +192,73 @@ const cardsData: cardProps[] = [
     prompt:
       "Digital Circuits: Incorporate elements that resemble digital circuits, such as interconnected lines and nodes, to emphasize technology and connectivity.Abstract Shapes: Use abstract shapes that convey motion and dynamism, like swooshes, spirals, or futuristic geometric forms.Color Palette: Utilize a color scheme of electric blue, neon green, and black. For example, electric blue can be used for the main text, neon green for accents or highlights, and black for outlines and additional details.Text: Include the text 'TechPulse Innovations' in a sleek, modern, and minimalist font. The font should be clear and easily readable, even at smaller sizes.Versatility: Design the logo to be versatile for use on website headers, app icons, and trade show booths. Ensure it maintains clarity and impact at various sizes and formats.The final design should merge the digital circuits and abstract shapes seamlessly with the text to create a cohesive and visually appealing single minimalist logo that represents the innovative spirit of TechPulse Innovations.",
     imageSrc: TechPulseV2.src,
+  },
+  {
+    title: "Green Laf V2",
+    ia: "Copilot",
+    prompt: `Design a unique and visually appealing logo for GreenLeaf Organics, a company in the health and wellness industry. The logo should incorporate earth tones like green and brown, avoiding bright neon colors, to reflect the brand's commitment to natural and organic products. Use a clean sans-serif font to ensure a modern and minimalist aesthetic.
+
+    Include a leaf or plant element to symbolize growth, health, and freshness, conveying a sense of trust and vitality. The logo should be simple yet memorable, effectively resonating with our target audience of health-conscious consumers seeking organic and natural products.
+
+    provide the logo on a white background.`,
+    imageSrc: greenLeaf2.src,
+  },
+  {
+    title: "Calegario games V2",
+    ia: "Copilot",
+    prompt: `Design a modern and minimalist logo for Calegario Games, a company in the gaming industry. The logo should reflect the brand's commitment to simplicity and elegance, using clean lines and typography to convey a sense of sophistication. Incorporate elements like joysticks and other game-related symbols to evoke creativity and excitement. Use colors like blue and purple, including bright neon shades, to make the logo vibrant and appealing.
+
+    The logo should feature a clean sans-serif font and be simple yet memorable, effectively resonating with our target audience of gamers and enthusiasts. Please provide the logo on a white background.`,
+    imageSrc: calegarioGamesv2.src,
+  },
+  {
+    title: "Loja Beat V2",
+    ia: "Copilot",
+    prompt: `Design a unique, modern, and visually appealing logo for LOJA BEAT, a cutting-edge retail store. The logo should reflect the brand's focus on innovation and contemporary style, incorporating dynamic elements such as geometric shapes, abstract forms, or tech-inspired symbols to convey a sense of forward-thinking and energy.
+
+    Use a clean, bold sans-serif font to maintain a modern aesthetic. The color palette should include vibrant and energetic colors like electric blue, neon green, or bright orange to capture attention and convey excitement.
+
+    The logo should be simple yet memorable, effectively resonating with our target audience of tech-savvy and trend-conscious consumers. Please provide the logo on a white background, ensuring it embodies the essence of our brand and core values.`,
+    imageSrc: lojaBeatv2.src,
+  },
+  {
+    title: "Lesen",
+    ia: "DreamStudio SXDL.1",
+    prompt: `A logo about a book company called LESEN. I want the design colors to be brown and red. It needs to shows a closed book and i want the whole logo to be surrounded by a squared shape. I want LESEN to be in bolded font under the book.`,
+    imageSrc: lesen.src,
+  },
+  {
+    title: "Dalilah",
+    ia: "DreamStudio stable diffusion",
+    prompt: `A logo about flower shop called DALILAH.  I want the color design to be pink and green. In the logo, it must appear a tulip and a rose. I want the name DALILAH to appear in a green and cute font. The logo must be in a circle shape and it has to be chill and tranquilizing.`,
+    imageSrc: Dalilah.src,
+  },
+  {
+    title: "Dalilah",
+    ia: "DreamStudio SXDL.1",
+    prompt: `A logo about flower shop called DALILAH.  I want the color design to be pink and green. In the logo, it must appear a tulip and a rose. I want the name DALILAH to appear in a green and cute font. The logo must be in a circle shape and it has to be chill and tranquilizing.`,
+    imageSrc: Dalilah2.src,
+  },
+  {
+    title: "Urban Beat V2",
+    ia: "DeepAi",
+    prompt:
+      "Create a logo for Urban Beat that is bold and modern, encapsulating the essence of urban fashion and youthful energy. Incorporate graphic elements such as graffiti-inspired art and sharp geometric lines to reflect the edgy, street-style aesthetic. Use a vibrant color palette featuring red, yellow, and black to create a striking visual impact. The design should be versatile, ensuring it works well across various applications including clothing tags, packaging, and marketing campaigns. Consider integrating dynamic shapes and bold typography to enhance the logo's contemporary and energetic vibe, making it instantly recognizable and appealing to a youthful audience.",
+    imageSrc: urbanBeatv2.src,
+  },
+  {
+    title: "La Belle Cuisine V2",
+    ia: "DeepAI",
+    prompt:
+      "Main Icon: A stylized fork crossing a cloche, both drawn with fine and detailed lines.Color Palette: Use black as the background color, with metallic gold details for the fork and cloche. Use white for the text.Typography: Choose a classic and refined serif font for the name 'La Belle Cuisine'. The typography should be elegant and legible, with adequate spacing between the letters.Style and Layout: The design should be symmetrical and centered. The icon should be positioned above the name, with balanced proportions.Texture and Finish: Add a subtle shine effect to the gold to simulate a realistic metallic finish. The black background should be matte to contrast with the shiny gold.",
+    imageSrc: laBelleCuisinev2.src,
+  },
+  {
+    title: "EcoTech Solutions V2",
+    ia: "DeepAI",
+    prompt:
+      "Create a logo for EcoTech Solutions that is modern and clean, reflecting our commitment to sustainability and technological innovation. Use visual elements such as solar panels or leaves. Use green and blue colors to symbolize nature and technology. The logo should convey progress and environmental responsibility. also insert my brand name EcoTech Solutionlogo.",
+    imageSrc: ecotechv2.src,
   },
 ];
 
