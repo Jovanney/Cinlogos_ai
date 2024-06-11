@@ -21,6 +21,11 @@ import greenHorizonFarmsV2 from "@/public/logo-19.jpeg";
 import EcoVibeV2 from "@/public/logo-20.jpeg";
 import TechPulseV2 from "@/public/logo-21.jpeg";
 import { ThreeDCardLogo } from "@/components/card-logo";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import greenLeaf2 from "@/public/green-leaf-v2.jpeg";
+import calegarioGamesv2 from "@/public/calegario-games-v2.jpeg";
+import lojaBeat from "@/public/loja-beat.jpeg";
+import lojaBeatv2 from "@/public/loja-beat-v2.jpeg";
 
 interface cardProps {
   title: string;
@@ -38,6 +43,17 @@ const cardsData: cardProps[] = [
     imageSrc: greenLaf.src,
   },
   {
+    title: "Green Laf V2",
+    ia: "Copilot",
+    prompt: `Design a unique and visually appealing logo for GreenLeaf Organics, a company in the health and wellness industry. The logo should incorporate earth tones like green and brown, avoiding bright neon colors, to reflect the brand's commitment to natural and organic products. Use a clean sans-serif font to ensure a modern and minimalist aesthetic.
+
+    Include a leaf or plant element to symbolize growth, health, and freshness, conveying a sense of trust and vitality. The logo should be simple yet memorable, effectively resonating with our target audience of health-conscious consumers seeking organic and natural products.
+
+    provide the logo on a white background.`,
+    imageSrc: greenLeaf2.src,
+  },
+
+  {
     title: "Calegario games",
     ia: "Copilot",
     prompt:
@@ -45,11 +61,30 @@ const cardsData: cardProps[] = [
     imageSrc: calegarioGames.src,
   },
   {
-    title: "Doctor Logo",
-    ia: "ChatGpt + Copilot",
-    prompt:
-      "Design a logo for a modern, innovative doctor. The logo should combine traditional medical symbols (like a stethoscope or caduceus) with elements that represent AI and technology (such as circuit patterns, digital lines, or abstract neural networks). Use a color palette that includes medical blues or greens, with accents of high-tech colors like silver or neon blue. The logo should be versatile enough to be used on business cards, websites, and medical equipment.",
-    imageSrc: doctorLogo.src,
+    title: "Calegario games V2",
+    ia: "Copilot",
+    prompt: `Design a modern and minimalist logo for Calegario Games, a company in the gaming industry. The logo should reflect the brand's commitment to simplicity and elegance, using clean lines and typography to convey a sense of sophistication. Incorporate elements like joysticks and other game-related symbols to evoke creativity and excitement. Use colors like blue and purple, including bright neon shades, to make the logo vibrant and appealing.
+
+    The logo should feature a clean sans-serif font and be simple yet memorable, effectively resonating with our target audience of gamers and enthusiasts. Please provide the logo on a white background.`,
+    imageSrc: calegarioGamesv2.src,
+  },
+  {
+    title: "Loja Beat",
+    ia: "Copilot",
+    prompt: `Design a modern and innovative logo for LOJA BEAT, a cutting-edge retail store. The logo should reflect the brand's focus on innovation and contemporary style. Incorporate dynamic elements such as geometric shapes, abstract forms, or tech-inspired symbols to convey a sense of forward-thinking and energy. Use a clean, bold sans-serif font to maintain a modern aesthetic.
+
+    The color palette should include vibrant and energetic colors like electric blue, neon green, or bright orange to capture attention and convey excitement. The logo should be simple yet memorable, effectively resonating with our target audience of tech-savvy and trend-conscious consumers. Please provide the logo on a white background.`,
+    imageSrc: lojaBeat.src,
+  },
+  {
+    title: "Loja Beat V2",
+    ia: "Copilot",
+    prompt: `Design a unique, modern, and visually appealing logo for LOJA BEAT, a cutting-edge retail store. The logo should reflect the brand's focus on innovation and contemporary style, incorporating dynamic elements such as geometric shapes, abstract forms, or tech-inspired symbols to convey a sense of forward-thinking and energy.
+
+    Use a clean, bold sans-serif font to maintain a modern aesthetic. The color palette should include vibrant and energetic colors like electric blue, neon green, or bright orange to capture attention and convey excitement.
+
+    The logo should be simple yet memorable, effectively resonating with our target audience of tech-savvy and trend-conscious consumers. Please provide the logo on a white background, ensuring it embodies the essence of our brand and core values.`,
+    imageSrc: lojaBeatv2.src,
   },
   {
     title: "EcoTech Solutions",
@@ -147,51 +182,53 @@ const cardsData: cardProps[] = [
     title: "La Belle Cuisine V2",
     ia: "DeepAI",
     prompt:
-      "Main Icon: A stylized fork crossing a cloche, both drawn with fine and detailed lines.Color Palette: Use black as the background color, with metallic gold details for the fork and cloche. Use white for the text.Typography: Choose a classic and refined serif font for the name 'La Belle Cuisine'. The typography should be elegant and legible, with adequate spacing between the letters.Style and Layout: The design should be symmetrical and centered. The icon should be positioned above the name, with balanced proportions.Texture and Finish: Add a subtle shine effect to the gold to simulate a realistic metallic finish. The black background should be matte to contrast with the shiny gold.",    
-      imageSrc: laBelleV2.src,
+      "Main Icon: A stylized fork crossing a cloche, both drawn with fine and detailed lines.Color Palette: Use black as the background color, with metallic gold details for the fork and cloche. Use white for the text.Typography: Choose a classic and refined serif font for the name 'La Belle Cuisine'. The typography should be elegant and legible, with adequate spacing between the letters.Style and Layout: The design should be symmetrical and centered. The icon should be positioned above the name, with balanced proportions.Texture and Finish: Add a subtle shine effect to the gold to simulate a realistic metallic finish. The black background should be matte to contrast with the shiny gold.",
+    imageSrc: laBelleV2.src,
   },
   {
     title: "Urban Beat V2",
     ia: "DeepAI",
     prompt:
-      "Create a logo for 'Urban Beat' that reflects urban fashion and youthful energy. The logo should include the following elements Graffiti Style: Incorporate graffiti-inspired elements such as spray paint effects, bold and irregular lettering, and street art motifs.Geometric Lines: Add geometric lines and shapes to give a modern and structured feel.Vibrant Colors: Use a color palette of red, yellow, and black with high contrast to ensure the logo stands out. For instance, use red for the main text, yellow for highlights or accents, and black for outlines and details.Versatile Design: Ensure the logo is versatile for use on clothing tags, packaging, and marketing materials. It should be clear and recognizable at different sizes.Text: Include the text 'Urban Beat' prominently in a bold and dynamic font that complements the graffiti and geometric elements.",    
-      imageSrc: UrbanBeatV2.src,
+      "Create a logo for 'Urban Beat' that reflects urban fashion and youthful energy. The logo should include the following elements Graffiti Style: Incorporate graffiti-inspired elements such as spray paint effects, bold and irregular lettering, and street art motifs.Geometric Lines: Add geometric lines and shapes to give a modern and structured feel.Vibrant Colors: Use a color palette of red, yellow, and black with high contrast to ensure the logo stands out. For instance, use red for the main text, yellow for highlights or accents, and black for outlines and details.Versatile Design: Ensure the logo is versatile for use on clothing tags, packaging, and marketing materials. It should be clear and recognizable at different sizes.Text: Include the text 'Urban Beat' prominently in a bold and dynamic font that complements the graffiti and geometric elements.",
+    imageSrc: UrbanBeatV2.src,
   },
   {
     title: "Green Horizon Farms V2",
     ia: "DeepAI",
     prompt:
-      "A sunrise in the background, symbolizing new beginnings and growth.Leaves surrounding or incorporated into the text, emphasizing the organic aspect.A simple representation of fields or farm landscape at the bottom.Color Scheme:Green for the leaves and fields, representing nature and sustainability.Brown for the text and fields, symbolizing the earth and soil.Yellow for the sunrise, indicating energy and vitality.Typography:Use a clean, sans-serif font for 'Green Horizon Farms' to ensure readability.The text should be bold and slightly curved to harmonize with the organic elements.Style:Flat design with minimal shading to keep the logo versatile and easily recognizable.Ensure the logo is scalable and looks good in various sizes, from small product labels to large banners.Composition:Place the sunrise at the top center of the logo.Position the text 'Green Horizon Farms' below the sunrise, with leaves integrated into or surrounding the text.Add subtle field elements at the bottom to ground the design.",    
-      imageSrc: greenHorizonFarmsV2.src,
+      "A sunrise in the background, symbolizing new beginnings and growth.Leaves surrounding or incorporated into the text, emphasizing the organic aspect.A simple representation of fields or farm landscape at the bottom.Color Scheme:Green for the leaves and fields, representing nature and sustainability.Brown for the text and fields, symbolizing the earth and soil.Yellow for the sunrise, indicating energy and vitality.Typography:Use a clean, sans-serif font for 'Green Horizon Farms' to ensure readability.The text should be bold and slightly curved to harmonize with the organic elements.Style:Flat design with minimal shading to keep the logo versatile and easily recognizable.Ensure the logo is scalable and looks good in various sizes, from small product labels to large banners.Composition:Place the sunrise at the top center of the logo.Position the text 'Green Horizon Farms' below the sunrise, with leaves integrated into or surrounding the text.Add subtle field elements at the bottom to ground the design.",
+    imageSrc: greenHorizonFarmsV2.src,
   },
   {
     title: "Eco Vibe V2",
     ia: "Canva",
     prompt:
-      "Leaf motifs integrated into the design to symbolize eco-friendliness and sustainability.Minimalist lines to give a modern and trendy look.A subtle circular or rectangular frame to encapsulate the elements neatly.Color Scheme:Earth tones such as:Green for the leaves, symbolizing nature and sustainability.Brown for text or accents, representing the earth and eco-friendliness.Beige for the background or additional elements to maintain a neutral, earthy feel.Typography:Use a clean, modern, sans-serif font for 'EcoVibe Apparel' to ensure readability.The text should be slightly bold to stand out but still harmonize with the minimalist design.Consider using lowercase letters for a more casual and approachable feel.Style:Flat design with minimal shading to keep the logo versatile and easily recognizable.Ensure the logo is scalable and looks good in various sizes, from small clothing labels to large shopping bags and social media profiles.Composition:Position the leaf motifs either at the top or around the text to create a balanced and cohesive look.",    
-      imageSrc: EcoVibeV2.src,
+      "Leaf motifs integrated into the design to symbolize eco-friendliness and sustainability.Minimalist lines to give a modern and trendy look.A subtle circular or rectangular frame to encapsulate the elements neatly.Color Scheme:Earth tones such as:Green for the leaves, symbolizing nature and sustainability.Brown for text or accents, representing the earth and eco-friendliness.Beige for the background or additional elements to maintain a neutral, earthy feel.Typography:Use a clean, modern, sans-serif font for 'EcoVibe Apparel' to ensure readability.The text should be slightly bold to stand out but still harmonize with the minimalist design.Consider using lowercase letters for a more casual and approachable feel.Style:Flat design with minimal shading to keep the logo versatile and easily recognizable.Ensure the logo is scalable and looks good in various sizes, from small clothing labels to large shopping bags and social media profiles.Composition:Position the leaf motifs either at the top or around the text to create a balanced and cohesive look.",
+    imageSrc: EcoVibeV2.src,
   },
   {
     title: "Tech Pulse V2",
     ia: "DeepAI",
     prompt:
-      "Digital Circuits: Incorporate elements that resemble digital circuits, such as interconnected lines and nodes, to emphasize technology and connectivity.Abstract Shapes: Use abstract shapes that convey motion and dynamism, like swooshes, spirals, or futuristic geometric forms.Color Palette: Utilize a color scheme of electric blue, neon green, and black. For example, electric blue can be used for the main text, neon green for accents or highlights, and black for outlines and additional details.Text: Include the text 'TechPulse Innovations' in a sleek, modern, and minimalist font. The font should be clear and easily readable, even at smaller sizes.Versatility: Design the logo to be versatile for use on website headers, app icons, and trade show booths. Ensure it maintains clarity and impact at various sizes and formats.The final design should merge the digital circuits and abstract shapes seamlessly with the text to create a cohesive and visually appealing single minimalist logo that represents the innovative spirit of TechPulse Innovations.",    
-      imageSrc: TechPulseV2.src,
+      "Digital Circuits: Incorporate elements that resemble digital circuits, such as interconnected lines and nodes, to emphasize technology and connectivity.Abstract Shapes: Use abstract shapes that convey motion and dynamism, like swooshes, spirals, or futuristic geometric forms.Color Palette: Utilize a color scheme of electric blue, neon green, and black. For example, electric blue can be used for the main text, neon green for accents or highlights, and black for outlines and additional details.Text: Include the text 'TechPulse Innovations' in a sleek, modern, and minimalist font. The font should be clear and easily readable, even at smaller sizes.Versatility: Design the logo to be versatile for use on website headers, app icons, and trade show booths. Ensure it maintains clarity and impact at various sizes and formats.The final design should merge the digital circuits and abstract shapes seamlessly with the text to create a cohesive and visually appealing single minimalist logo that represents the innovative spirit of TechPulse Innovations.",
+    imageSrc: TechPulseV2.src,
   },
 ];
 
 export default function Page() {
   return (
-    <div className="grid h-screen overflow-y-auto grid-cols-1 lg:grid-cols-3 py-24 px-10 lg:px-0">
-      {cardsData.map((card, index) => (
-        <ThreeDCardLogo
-          key={index}
-          title={card.title}
-          ia={card.ia}
-          prompt={card.prompt}
-          imageSrc={card.imageSrc}
-        />
-      ))}
-    </div>
+    <ScrollArea className="h-screen overflow-auto">
+      <div className="grid min-h-screen overflow-y-auto items-start grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 py-24 px-10 lg:px-0">
+        {cardsData.map((card, index) => (
+          <ThreeDCardLogo
+            key={index}
+            title={card.title}
+            ia={card.ia}
+            prompt={card.prompt}
+            imageSrc={card.imageSrc}
+          />
+        ))}
+      </div>
+    </ScrollArea>
   );
 }
