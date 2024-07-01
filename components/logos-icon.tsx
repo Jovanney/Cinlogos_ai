@@ -36,7 +36,7 @@ const slugs = [
 export function LogoIconsCloud() {
   return (
     <div className="flex w-full items-center justify-center overflow-hidden px-20 ">
-      <div className="max-w-[32rem]">
+      <div className="max-w-[22rem]">
         <IconCloud iconSlugs={slugs} />
       </div>
     </div>
