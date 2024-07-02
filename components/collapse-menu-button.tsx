@@ -63,7 +63,7 @@ export function CollapseMenuButton({
       >
         <Button
           variant={active ? "secondary" : "ghost"}
-          className="w-full justify-start h-10"
+          className="w-full justify-start h-8"
         >
           <div className="w-full items-center flex justify-between">
             <div className="flex items-center">
@@ -102,7 +102,7 @@ export function CollapseMenuButton({
           <Button
             key={index}
             variant={active ? "secondary" : "ghost"}
-            className="w-full justify-start h-10 mb-1"
+            className="w-full justify-start h-8 my-1"
             asChild
           >
             <Link href={href}>
