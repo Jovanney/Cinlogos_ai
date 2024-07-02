@@ -32,6 +32,17 @@ import Dalilah2 from "@/public/FLOWERSHOP-SDXL-1.png";
 import ecotechv2 from "@/public/ecotechv2.jpg";
 import laBelleCuisinev2 from "@/public/labelev2.jpg";
 import urbanBeatv2 from "@/public/urbanbeatv2.jpg";
+import { ContentLayout } from "@/components/content-layout";
+
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import Link from "next/link";
 
 interface cardProps {
   title: string;
@@ -264,8 +275,21 @@ const cardsData: cardProps[] = [
 
 export default function Page() {
   return (
-    <ScrollArea className="h-screen overflow-auto">
-      <div className="grid min-h-screen overflow-y-auto items-start grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 py-24 px-10 lg:px-0">
+    <ContentLayout title="Galery">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link href="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Galery</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <div className="grid overflow-y-auto items-start justify-start grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 px-10 lg:px-0 w-full">
         {cardsData.map((card, index) => (
           <ThreeDCardLogo
             key={index}
@@ -276,6 +300,6 @@ export default function Page() {
           />
         ))}
       </div>
-    </ScrollArea>
+    </ContentLayout>
   );
 }

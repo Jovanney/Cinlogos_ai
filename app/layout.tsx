@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { NavbarDemo } from "@/components/nav-bar";
 import { ThemeProvider } from "next-themes";
+import AdminPanelLayout from "@/components/admin-panel-layout";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,16 +22,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <AdminPanelLayout>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ScrollArea className="h-screen overflow-auto w-full min-w-full">
+              {children}
+            </ScrollArea>
+          </ThemeProvider>
+        </AdminPanelLayout>
       </body>
     </html>
   );
