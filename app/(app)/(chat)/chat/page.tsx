@@ -1,4 +1,3 @@
-import { cookies } from "next/headers";
 import { ChatLayout } from "@/modules/chat/components/chat-layout";
 import { ContentLayout } from "@/components/content-layout";
 import {
