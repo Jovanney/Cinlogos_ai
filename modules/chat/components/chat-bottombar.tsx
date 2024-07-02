@@ -1,12 +1,4 @@
-import {
-  FileImage,
-  Mic,
-  Paperclip,
-  PlusCircle,
-  SendHorizontal,
-  Smile,
-  ThumbsUp,
-} from "lucide-react";
+import { FileImage, Paperclip, SendHorizontal } from "lucide-react";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
@@ -14,12 +6,6 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Message, loggedInUserData } from "@/app/data";
 import { Textarea } from "@/components/ui/textarea";
-// import { EmojiPicker } from "../emoji-picker";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 
 interface ChatBottombarProps {
   sendMessage: (newMessage: Message) => void;
@@ -37,17 +23,6 @@ export default function ChatBottombar({
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value);
-  };
-
-  const handleThumbsUp = () => {
-    const newMessage: Message = {
-      id: message.length + 1,
-      name: loggedInUserData.name,
-      avatar: loggedInUserData.avatar,
-      message: "👍",
-    };
-    sendMessage(newMessage);
-    setMessage("");
   };
 
   const handleSend = () => {

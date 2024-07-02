@@ -1,8 +1,4 @@
 import { cookies } from "next/headers";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 import { ChatLayout } from "@/modules/chat/components/chat-layout";
 
 export default function Home() {
