@@ -26,7 +26,7 @@ export function ChatLayout() {
   }, []);
 
   return (
-    <div className="container max-w-7xl">
+    <div className="w-full">
       <Chat
         messages={selectedUser.messages}
         selectedUser={selectedUser}
