@@ -28,7 +28,7 @@ export default function Home() {
         </BreadcrumbList>
       </Breadcrumb>
       <main className="flex h-[calc(80dvh)] flex-col items-center justify-center pt-4 w-full ">
-        <div className="z-10 border rounded-lg w-full min-h-fit h-full text-sm lg:flex">
+        <div className="z-10 border rounded-lg w-full min-h-fit h-full text-sm flex">
           <ChatLayout />
         </div>
       </main>
