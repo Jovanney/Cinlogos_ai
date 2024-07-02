@@ -40,7 +40,7 @@ export function Sidebar({ links, isCollapsed, isMobile }: SidebarProps) {
 
           <div>
             <Link
-              href="#"
+              href="/"
               className={cn(
                 buttonVariants({ variant: "ghost", size: "icon" }),
                 "h-9 w-9"

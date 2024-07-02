@@ -1,11 +1,4 @@
-import {
-  Tag,
-  Users,
-  Settings,
-  Bookmark,
-  SquarePen,
-  LayoutGrid,
-} from "lucide-react";
+import { SquarePen, LayoutGrid } from "lucide-react";
 
 type Submenu = {
   href: string;
