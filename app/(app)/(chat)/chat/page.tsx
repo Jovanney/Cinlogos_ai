@@ -1,14 +1,37 @@
 import { cookies } from "next/headers";
 import { ChatLayout } from "@/modules/chat/components/chat-layout";
+import { ContentLayout } from "@/components/content-layout";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import Link from "next/link";
 
 export default function Home() {
-  const layout = cookies().get("react-resizable-panels:layout");
-
   return (
-    <main className="flex h-[calc(100dvh)] flex-col items-center justify-center p-4  gap-4">
-      <div className="z-10 border rounded-lg  w-full max-w-7xl h-full text-sm lg:flex">
-        <ChatLayout />
-      </div>
-    </main>
+    <ContentLayout title="Chat">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link href="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Chat</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <main className="flex h-[calc(80dvh)] flex-col items-center justify-center pt-4 w-full ">
+        <div className="z-10 border rounded-lg w-full min-h-fit h-full text-sm lg:flex">
+          <ChatLayout />
+        </div>
+      </main>
+    </ContentLayout>
   );
 }
