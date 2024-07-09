@@ -34,23 +34,36 @@ export function getMenuList(pathname: string): Group[] {
       ],
     },
     {
-      groupLabel: "Chats",
+      groupLabel: "Services",
       menus: [
         {
           href: "",
-          label: "AI Chats",
+          label: "Generate",
+          active: pathname.includes("/generate"),
+          icon: SquarePen,
+          submenus: [
+            {
+              href: "/generate-logo",
+              label: "Logo",
+              active: pathname === "/generate-logo",
+            },
+            {
+              href: "generate-soundtrack",
+              label: "Soundtrack",
+              active: pathname === "/generate-soundtrack",
+            },
+          ],
+        },
+        {
+          href: "",
+          label: "Chat",
           active: pathname.includes("/chat"),
           icon: SquarePen,
           submenus: [
             {
               href: "/chat",
-              label: "Generate your logo",
+              label: "Ask about ...",
               active: pathname === "/chat",
-            },
-            {
-              href: "/chat/soundtrack",
-              label: "Generate your soundtrack",
-              active: pathname === "/chat/soundtrack",
             },
           ],
         },
