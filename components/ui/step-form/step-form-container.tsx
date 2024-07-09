@@ -162,7 +162,7 @@ const StepFormsContainer = ({
 
   return (
     <div
-      className={`h-full w-full min-h-fit absolute transition-all left-0 
+      className={`w-full min-h-fit h-full absolute transition-all left-0
                          ${
                            currentNumber === previous && goToForm === undefined
                              ? "duration-0"

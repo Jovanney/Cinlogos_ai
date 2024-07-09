@@ -63,11 +63,8 @@ const MultiStepForm = ({
   }, [Forms.length, canContinue, currentForm, previous, setContinue]);
 
   return (
-    <main
-      className="h-full w-full min-w-375 flex flex-col lg:flex-row lg:p-4  
-                         lg:rounded-2xl  sm-lg:overflow-hidden shadow-2xl"
-    >
-      <section className="w-full h-40 min-w-fit max-h-40 p-4 lg:p-8 lg:h-full lg:max-w-[10%] lg:max-h-full lg:rounded-inherit font-medium">
+    <main className="h-full w-full min-h-fit min-w-375 flex flex-col lg:flex-row lg:p-4 lg:rounded-2xl sm-lg:overflow-hidden shadow-2xl">
+      <section className="w-full min-w-fit max-h-40 p-4 lg:p-8 lg:h-full lg:max-w-[10%] lg:max-h-full lg:rounded-inherit font-medium">
         <div className="m-auto w-dynamic-w-mobile h-[42%] lg:h-auto lg:w-full lg:py-4">
           <nav className="h-full">
             <ul className="sm-lg:flex sm-lg:items-center sm-lg:flex-row sm-lg:h-full sm-lg:justify-center">
@@ -83,8 +80,8 @@ const MultiStepForm = ({
           </nav>
         </div>
       </section>
-      <section className="flex flex-col justify-between grow lg:pl-4 lg:overflow-hidden">
-        <section className="grow p-4 relative">
+      <section className="flex flex-col w-full gap-10 lg:overflow-hidden">
+        <section className="relative h-full">
           <div className="h-full sm-lg:w-dynamic-w-mobile relative m-auto sm-lg:max-w-lg">
             <div className="w-full sm-lg:h-[calc(100%+5.5rem)] lg:h-full mx-auto absolute sm-lg:mt-[-5.5rem]">
               <CurrentFormRef.Provider value={currentFormRef}>

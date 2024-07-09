@@ -12,6 +12,7 @@ import {
 import { multiModalType } from "@/components/ui/step-form/form-types";
 import MultiStepForm from "@/components/ui/step-form/multi-step-form";
 import { CompanyForm } from "@/modules/generate-logo/components/company-form";
+import { SegmentForm } from "@/modules/generate-logo/components/segment-form";
 import Link from "next/link";
 import React from "react";
 
@@ -24,6 +25,10 @@ export default function App() {
     {
       formLabel: "Your company name",
       form: <CompanyForm setContinue={setCanContinue} />,
+    },
+    {
+      formLabel: "Your company segment",
+      form: <SegmentForm setContinue={setCanContinue} />,
     },
   ];
   return (
@@ -41,13 +46,15 @@ export default function App() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <MultiStepForm
-        Forms={Forms}
-        continueState={[canContinue, setCanContinue]}
-        goToForm={orderedForm}
-        setGoToForm={setGoToForm}
-        disableControls={false}
-      />
+      <div className="h-[calc(80dvh)] items-center justify-center pt-4 w-full">
+        <MultiStepForm
+          Forms={Forms}
+          continueState={[canContinue, setCanContinue]}
+          goToForm={orderedForm}
+          setGoToForm={setGoToForm}
+          disableControls={false}
+        />
+      </div>
     </ContentLayout>
   );
 }
