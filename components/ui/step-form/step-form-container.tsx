@@ -39,8 +39,7 @@ const FromWrapper = ({
 
   return (
     <article
-      className="bg-white w-full lg:mt-0 lg:max-w-full border-solid sm-lg:border-[1.5rem] lg:border-t-[2rem] border-white
-                            sm-lg:shadow-lg left-0 sm-lg:rounded-xl max-h-full h-auto absolute right-0 overflow-y-auto overflow-x-hidden"
+      className="w-full lg:mt-0 left-0 pb-2 sm-lg:rounded-xl max-h-full h-auto absolute right-0 overflow-y-auto overflow-x-hidden"
       style={{ left: posOffset + "%" }}
       ref={formRef}
     >
@@ -163,7 +162,7 @@ const StepFormsContainer = ({
 
   return (
     <div
-      className={`h-full w-full absolute transition-all left-0 
+      className={`h-full w-full min-h-fit absolute transition-all left-0 
                          ${
                            currentNumber === previous && goToForm === undefined
                              ? "duration-0"

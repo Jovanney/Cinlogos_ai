@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { multiModalType } from "@/components/ui/step-form/form-types";
 import MultiStepForm from "@/components/ui/step-form/multi-step-form";
-import { Form1 } from "@/modules/generate-logo/components/form1";
+import { CompanyForm } from "@/modules/generate-logo/components/company-form";
 import Link from "next/link";
 import React from "react";
 
@@ -20,12 +20,11 @@ export default function App() {
 
   const [orderedForm, setGoToForm] = React.useState<number | undefined>();
 
-  console.log("canContinue:", canContinue);
-
   const Forms: multiModalType = [
-    { formLabel: "Teste", form: <Form1 setContinue={setCanContinue} /> },
-    { formLabel: "Teste 2", form: <Form1 setContinue={setCanContinue} /> },
-    { formLabel: "Teste 3", form: <Form1 setContinue={setCanContinue} /> },
+    {
+      formLabel: "Your company name",
+      form: <CompanyForm setContinue={setCanContinue} />,
+    },
   ];
   return (
     <ContentLayout title="Generate your logo">

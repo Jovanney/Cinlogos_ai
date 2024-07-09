@@ -1,3 +1,5 @@
+import { Check } from "lucide-react";
+
 interface stepFormMenuButtonProps {
   number: number;
   title: string;
@@ -10,17 +12,21 @@ const StepFormMenuButton = ({
   curretNumber,
 }: stepFormMenuButtonProps) => {
   return (
-    <li className="text-light-blue font-medium lg:mb-8 [&>*]:text-white">
+    <li className="font-semibold">
       <div className={`inline-flex items-center lg:py-1 cursor-default`}>
         <div
           className={`w-9 h-9 rounded-full border-2 border-light-blue flex justify-center items-center mr-4
                                 ${
                                   number === curretNumber
-                                    ? "bg-light-blue text-black"
+                                    ? "bg-blue-300 dark:text-black"
                                     : ""
-                                }`}
+                                }
+                                ${number < curretNumber ? "bg-green-500 " : ""}
+                                `}
         >
-          <p className="text-base font-bold">{number}</p>
+          <p className="text-base font-bold">
+            {number < curretNumber ? <Check size={20} color="black" /> : number}
+          </p>
         </div>
         <div className="hidden lg:block">
           <p className="text-[0.8rem] leading-4 font-normal text-light-blue">
