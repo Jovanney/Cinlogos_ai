@@ -1,4 +1,4 @@
-import { Message, UserData } from "@/app/data";
+import { Message, UserData } from "../data/data";
 import { ChatList } from "./chat-list";
 import React from "react";
 

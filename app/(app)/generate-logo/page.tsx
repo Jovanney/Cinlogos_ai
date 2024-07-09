@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { multiModalType } from "@/components/ui/step-form/form-types";
 import MultiStepForm from "@/components/ui/step-form/multi-step-form";
+import { BrandAttributeForm } from "@/modules/generate-logo/components/brand-attributes";
 import { CompanyForm } from "@/modules/generate-logo/components/company-form";
 import { SegmentForm } from "@/modules/generate-logo/components/segment-form";
 import Link from "next/link";
@@ -29,6 +30,10 @@ export default function App() {
     {
       formLabel: "Your company segment",
       form: <SegmentForm setContinue={setCanContinue} />,
+    },
+    {
+      formLabel: "Your brand attributes",
+      form: <BrandAttributeForm setContinue={setCanContinue} />,
     },
   ];
   return (

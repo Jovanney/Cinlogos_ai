@@ -9,9 +9,9 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import { Message } from "@/app/data";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarImage } from "./ui/avatar";
+import { Message } from "@/modules/chat/data/data";
 
 interface SidebarProps {
   isCollapsed: boolean;

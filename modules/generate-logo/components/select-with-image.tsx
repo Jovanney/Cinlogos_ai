@@ -14,16 +14,15 @@ export default function SelectWithImages({
   onChange,
 }: SelectWithImagesProps) {
   const { theme } = useTheme();
-  console.log("value:", value);
   return (
-    <div className="grid justify-center items-center grid-cols-3 w-full h-full gap-3 ">
+    <div className="grid justify-center items-center grid-cols-3 w-full h-full gap-5 ">
       {options.map((option) => (
         <MagicCard
           onClick={() => onChange(option.value)}
           key={option.value}
           className={`cursor-pointer hover:border-blue-300  shadow-2xl text-2xl ${
             option.value === value
-              ? "dark:border-blue-200 border-blue-500"
+              ? "dark:border-blue-200 border-blue-500 border-2"
               : "border-transparent"
           }`}
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
