@@ -4,8 +4,8 @@ import React, { useRef, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { Message, loggedInUserData } from "@/app/data";
 import { Textarea } from "@/components/ui/textarea";
+import { loggedInUserData, Message } from "@/modules/chat/data/data";
 
 interface ChatBottombarProps {
   sendMessage: (newMessage: Message) => void;

@@ -1,8 +1,8 @@
 "use client";
 
-import { userData } from "@/app/data";
 import React, { useEffect, useState } from "react";
 import { Chat } from "./chat";
+import { userData } from "../data/data";
 
 export function ChatLayout() {
   const [selectedUser, setSelectedUser] = React.useState(userData[0]);
