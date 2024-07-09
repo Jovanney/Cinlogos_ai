@@ -11,6 +11,7 @@ export interface MagicCardProps {
   gradientSize?: number;
   gradientColor?: string;
   gradientOpacity?: number;
+  onClick?: () => void;
 }
 
 export function MagicCard({
@@ -18,12 +19,14 @@ export function MagicCard({
   className = "",
   gradientSize = 200,
   gradientColor = "#262626",
+  onClick,
 }: MagicCardProps) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   return (
     <div
+      onClick={onClick}
       onMouseMove={(e) => {
         const { left, top } = e.currentTarget.getBoundingClientRect();
 
@@ -32,7 +35,7 @@ export function MagicCard({
       }}
       className={cn(
         "group relative flex size-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white",
-        className,
+        className
       )}
     >
       <div className="relative z-10">{children}</div>

@@ -3,6 +3,7 @@ import StepFormsContainer from "./step-form-container";
 import StepFormMenuButton from "./step-form-menu-button";
 import { multiModalType } from "./form-types";
 import { Button } from "../button";
+import { Separator } from "../separator";
 
 export const CurrentFormRef = createContext<React.MutableRefObject<
   HTMLFormElement | undefined
@@ -80,6 +81,7 @@ const MultiStepForm = ({
           </nav>
         </div>
       </section>
+      <Separator orientation="vertical" className="w-1" />
       <section className="flex flex-col w-full gap-10 lg:overflow-hidden">
         <section className="relative h-full">
           <div className="h-full sm-lg:w-dynamic-w-mobile relative m-auto sm-lg:max-w-lg">

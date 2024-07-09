@@ -1,7 +1,17 @@
 import AutoForm from "@/components/ui/auto-form";
-import { DependencyType } from "@/components/ui/auto-form/types";
+import {
+  AutoFormInputComponentProps,
+  DependencyType,
+} from "@/components/ui/auto-form/types";
+import {
+  FormControl,
+  FormDescription,
+  FormItem,
+  FormLabel,
+} from "@/components/ui/form";
 import React from "react";
 import { z } from "zod";
+import SelectWithImages from "./select-with-image";
 
 interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,7 +32,53 @@ export function SegmentForm({ setContinue }: CompanyFormProps) {
     <AutoForm
       fieldConfig={{
         companySegment: {
-          fieldType: "radio",
+          fieldType: ({
+            field,
+            label,
+            isRequired,
+            fieldConfigItem,
+            fieldProps,
+          }: AutoFormInputComponentProps) => (
+            <FormItem className="flex gap-2 flex-col items-center space-x-3 space-y-0 rounded-md p-4 w-full">
+              <FormLabel>
+                <span className="text-2xl text-center">{label}</span>
+                {isRequired && (
+                  <span className="text-destructive dark:text-red-500"> *</span>
+                )}
+              </FormLabel>
+              <FormControl>
+                <SelectWithImages
+                  options={[
+                    {
+                      value: "Restaurant",
+                      image: "https://via.placeholder.com/150",
+                    },
+                    {
+                      value: "Consulting",
+                      image: "https://via.placeholder.com/150",
+                    },
+                    {
+                      value: "Beauty",
+                      image: "https://via.placeholder.com/150",
+                    },
+                    {
+                      value: "Photography",
+                      image: "https://via.placeholder.com/150",
+                    },
+                  ]}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                {fieldConfigItem.description && (
+                  <FormDescription>
+                    {fieldConfigItem.description}
+                  </FormDescription>
+                )}
+              </div>
+            </FormItem>
+          ),
         },
       }}
       dependencies={[

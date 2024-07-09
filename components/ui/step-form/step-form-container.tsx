@@ -44,7 +44,7 @@ const FromWrapper = ({
       ref={formRef}
     >
       <div
-        className={`lg:max-w-lg lg:m-auto
+        className={`px-2
                              ${
                                me !== currentForm && me !== goToForm
                                  ? "opacity-60 pointer-events-none"
