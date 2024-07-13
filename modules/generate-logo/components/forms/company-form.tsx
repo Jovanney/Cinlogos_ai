@@ -14,24 +14,26 @@ import React from "react";
 import * as z from "zod";
 import { useCompanyStore } from "../../stores";
 
-export const CompanyFormSchema = z.object({
-  companyName: z
-    .string({ required_error: "Company name is required" })
-    .min(2, {
-      message: "Company name must be at least 2 characters long",
-    })
-    .describe("Enter the name of your company"),
-});
-
 interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function CompanyForm({ setContinue }: CompanyFormProps) {
-  const { setName } = useCompanyStore((state) => {
+  const { setName, name } = useCompanyStore((state) => {
     return {
       setName: state.setName,
+      name: state.Name,
     };
+  });
+
+  const CompanyFormSchema = z.object({
+    companyName: z
+      .string({ required_error: "Company name is required" })
+      .min(2, {
+        message: "Company name must be at least 2 characters long",
+      })
+      .describe("Enter the name of your company")
+      .default(name),
   });
 
   return (
