@@ -8,7 +8,7 @@ interface CompanyState {
   setName: (name: string) => void;
   setSegment: (segment: string) => void;
   setSegmentOther: (segmentOther: string) => void;
-  setAttributes: (attributes: string[]) => void;
+  setAttributes: (attribute: string) => void;
   reset: () => void;
 }
 
@@ -24,6 +24,12 @@ export const useCompanyStore = create<CompanyState>((set) => ({
   setName: (name) => set({ Name: name }),
   setSegment: (segment) => set({ Segment: segment }),
   setSegmentOther: (segmentOther) => set({ SegmentOther: segmentOther }),
-  setAttributes: (attributes) => set({ Attributes: attributes }),
+  setAttributes: (attribute) => {
+    set((state) => ({
+      Attributes: state.Attributes.includes(attribute)
+        ? state.Attributes.filter((item) => item !== attribute)
+        : [...state.Attributes, attribute],
+    }));
+  },
   reset: () => set(INITIAL_STATE),
 }));
