@@ -1,3 +1,4 @@
+"use client";
 import AutoForm, { AutoFormSubmit } from "@/components/ui/auto-form";
 import { AutoFormInputComponentProps } from "@/components/ui/auto-form/types";
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import React, { useEffect } from "react";
+import React from "react";
 import * as z from "zod";
 import { useCompanyStore } from "../../stores";
 

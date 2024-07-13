@@ -1,6 +1,4 @@
-import { z } from "zod";
 import { create } from "zustand";
-import { CompanyFormSchema } from "../components/forms/company-form";
 
 interface CompanyState {
   Name: string;
@@ -22,10 +20,7 @@ const INITIAL_STATE = {
 };
 
 export const useCompanyStore = create<CompanyState>((set) => ({
-  Name: "",
-  Segment: "",
-  SegmentOther: "",
-  Attributes: [],
+  ...INITIAL_STATE,
   setName: (name) => set({ Name: name }),
   setSegment: (segment) => set({ Segment: segment }),
   setSegmentOther: (segmentOther) => set({ SegmentOther: segmentOther }),
