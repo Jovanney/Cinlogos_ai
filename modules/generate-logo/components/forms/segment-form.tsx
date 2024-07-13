@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/form";
 import React from "react";
 import { z } from "zod";
-import SelectWithImages from "./select-with-image";
+import SelectWithImages from "../select-with-image";
 
 interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;

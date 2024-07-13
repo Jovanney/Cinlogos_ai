@@ -1,6 +1,5 @@
 "use client";
 import { ContentLayout } from "@/components/content-layout";
-import { AutoFormSubmit } from "@/components/ui/auto-form";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,15 +10,15 @@ import {
 } from "@/components/ui/breadcrumb";
 import { multiModalType } from "@/components/ui/step-form/form-types";
 import MultiStepForm from "@/components/ui/step-form/multi-step-form";
-import { BrandAttributeForm } from "@/modules/generate-logo/components/brand-attributes";
-import { CompanyForm } from "@/modules/generate-logo/components/company-form";
-import { SegmentForm } from "@/modules/generate-logo/components/segment-form";
+import { BrandAttributeForm } from "@/modules/generate-logo/components/forms/brand-attributes-form";
+import { CompanyForm } from "@/modules/generate-logo/components/forms/company-form";
+import { SegmentForm } from "@/modules/generate-logo/components/forms/segment-form";
+
 import Link from "next/link";
 import React from "react";
 
 export default function App() {
   const [canContinue, setCanContinue] = React.useState(false);
-
   const [orderedForm, setGoToForm] = React.useState<number | undefined>();
 
   const Forms: multiModalType = [
