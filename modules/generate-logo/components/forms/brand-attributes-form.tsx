@@ -16,16 +16,16 @@ interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const BrandAttributeSchema = z.object({
-  brandAttributes: z.array(z.string()),
-});
-
 export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
   const { brandAttributes, setBrandAttributes } = useCompanyStore((state) => {
     return {
       brandAttributes: state.Attributes,
       setBrandAttributes: state.setAttributes,
     };
+  });
+
+  const BrandAttributeSchema = z.object({
+    brandAttributes: z.array(z.string()).default(brandAttributes),
   });
 
   return (
