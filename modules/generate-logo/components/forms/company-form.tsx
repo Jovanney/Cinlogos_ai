@@ -9,10 +9,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import React from "react";
+import React, { useEffect } from "react";
 import * as z from "zod";
+import { useCompanyStore } from "../../stores";
 
-const CompanyFormSchema = z.object({
+export const CompanyFormSchema = z.object({
   companyName: z
     .string({ required_error: "Company name is required" })
     .min(2, {
@@ -26,12 +27,19 @@ interface CompanyFormProps {
 }
 
 export function CompanyForm({ setContinue }: CompanyFormProps) {
+  const { setName } = useCompanyStore((state) => {
+    return {
+      setName: state.setName,
+    };
+  });
+
   return (
     <AutoForm
       onSubmit={(value) => {
         if (!value.companyName) {
           setContinue(false);
         } else {
+          setName(value.companyName);
           setContinue(true);
         }
       }}
@@ -44,7 +52,7 @@ export function CompanyForm({ setContinue }: CompanyFormProps) {
             fieldConfigItem,
           }: AutoFormInputComponentProps) => (
             <FormItem className="flex gap-2 flex-col items-center space-x-3 space-y-0 rounded-md p-4 w-full">
-              <FormLabel>
+              <FormLabel htmlFor="company-name">
                 <span className="text-2xl text-center">{label}</span>
                 {isRequired && (
                   <span className="text-destructive dark:text-red-500"> *</span>
@@ -52,9 +60,10 @@ export function CompanyForm({ setContinue }: CompanyFormProps) {
               </FormLabel>
               <FormControl>
                 <Textarea
-                  className="border-2"
                   value={field.value}
                   onChange={field.onChange}
+                  id="company-name"
+                  className="border-2"
                 />
               </FormControl>
               <div className="space-y-1 leading-none">

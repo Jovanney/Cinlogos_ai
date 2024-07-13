@@ -1,4 +1,6 @@
+import { z } from "zod";
 import { create } from "zustand";
+import { CompanyFormSchema } from "../components/forms/company-form";
 
 interface CompanyState {
   Name: string;
