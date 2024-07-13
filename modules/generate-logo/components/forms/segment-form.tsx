@@ -11,7 +11,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import React, { useEffect } from "react";
+import React from "react";
 import { z } from "zod";
 import SelectWithImages from "../select-with-image";
 import { useCompanyStore } from "../../stores";
