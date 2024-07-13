@@ -1,28 +1,25 @@
 import { create } from "zustand";
 
-type CompanyState = {
+interface CompanyState {
   Name: string;
   Segment: string;
   SegmentOther: string;
   Attributes: string[];
-};
-
-type CompanyActions = {
   setName: (name: string) => void;
   setSegment: (segment: string) => void;
   setSegmentOther: (segmentOther: string) => void;
   setAttributes: (attributes: string[]) => void;
   reset: () => void;
-};
+}
 
-const INITIAL_STATE: CompanyState = {
+const INITIAL_STATE = {
   Name: "",
   Segment: "",
   SegmentOther: "",
   Attributes: [],
 };
 
-export const useCompanyStore = create<CompanyState & CompanyActions>((set) => ({
+export const useCompanyStore = create<CompanyState>((set) => ({
   Name: "",
   Segment: "",
   SegmentOther: "",
