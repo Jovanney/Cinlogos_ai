@@ -1,3 +1,5 @@
+"use client";
+
 import AutoForm from "@/components/ui/auto-form";
 import { AutoFormInputComponentProps } from "@/components/ui/auto-form/types";
 import {
@@ -11,12 +13,26 @@ import React from "react";
 import { z } from "zod";
 import MultipleSelectWithImages from "../multiple-select-with-image";
 import { useCompanyStore } from "../../stores";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createLogo } from "../../http/create-logo";
 
 interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
+  const {
+    mutate,
+    isPending,
+    isError,
+    data: responseGeneratedLogo,
+  } = useMutation({
+    mutationFn: createLogo,
+    onError: (error) => {
+      console.error("Mutation failed:", error);
+    },
+  });
+
   const { brandAttributes, setBrandAttributes } = useCompanyStore((state) => {
     return {
       brandAttributes: state.Attributes,
@@ -24,9 +40,15 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
     };
   });
 
+  const prompt = `Generate a logo for a ${brandAttributes.join(", ")} company`;
+
   const BrandAttributeSchema = z.object({
     brandAttributes: z.array(z.string()).default(brandAttributes),
   });
+
+  if (isPending) return <div>Loading...</div>;
+
+  if (isError) return <div>Error</div>;
 
   return (
     <AutoForm
@@ -109,7 +131,7 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
         if (!value.brandAttributes) {
           setContinue(false);
         } else {
-          setContinue(true);
+          mutate({ prompt });
         }
       }}
       formSchema={BrandAttributeSchema}
