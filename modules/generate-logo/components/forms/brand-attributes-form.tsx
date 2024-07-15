@@ -14,7 +14,7 @@ import { z } from "zod";
 import MultipleSelectWithImages from "../multiple-select-with-image";
 import { useCompanyStore } from "../../stores";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createLogo } from "../../http/create-logo";
+import { createLogo } from "@/http/create-logo";
 
 interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
@@ -33,14 +33,15 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
     },
   });
 
-  const { brandAttributes, setBrandAttributes } = useCompanyStore((state) => {
-    return {
-      brandAttributes: state.Attributes,
-      setBrandAttributes: state.setAttributes,
-    };
-  });
-
-  const prompt = `Generate a logo for a ${brandAttributes.join(", ")} company`;
+  const { brandAttributes, setBrandAttributes, companyName, companySegment } =
+    useCompanyStore((state) => {
+      return {
+        brandAttributes: state.Attributes,
+        setBrandAttributes: state.setAttributes,
+        companyName: state.Name,
+        companySegment: state.Segment,
+      };
+    });
 
   const BrandAttributeSchema = z.object({
     brandAttributes: z.array(z.string()).default(brandAttributes),
@@ -131,7 +132,7 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
         if (!value.brandAttributes) {
           setContinue(false);
         } else {
-          mutate({ prompt });
+          mutate({ brandAttributes, companyName, companySegment });
         }
       }}
       formSchema={BrandAttributeSchema}
