@@ -16,6 +16,11 @@ import { useCompanyStore } from "../../stores";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createLogo } from "@/http/create-logo";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
+import { LogoResultModal } from "../logo-result-image";
+
+type ResponseGeneratedLogoType = {
+  output_url: string;
+};
 
 interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,6 +35,15 @@ const loadingStates = [
   },
   {
     text: "Adding finishing touches",
+  },
+  {
+    text: "Polishing your logo",
+  },
+  {
+    text: "Almost there!",
+  },
+  {
+    text: "Your logo is ready! 🎉",
   },
   {
     text: "Welcome to your new logo!",
@@ -71,6 +85,17 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
         duration={1000}
       />
     );
+  if (responseGeneratedLogo) {
+    return (
+      <LogoResultModal
+        open={!isPending}
+        companyName={companyName}
+        imageUrl={
+          (responseGeneratedLogo as ResponseGeneratedLogoType).output_url
+        }
+      />
+    );
+  }
 
   if (isError) return <div>Error</div>;
 
