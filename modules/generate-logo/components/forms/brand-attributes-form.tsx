@@ -15,10 +15,26 @@ import MultipleSelectWithImages from "../multiple-select-with-image";
 import { useCompanyStore } from "../../stores";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createLogo } from "@/http/create-logo";
+import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 
 interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+const loadingStates = [
+  {
+    text: "Sketching your logo",
+  },
+  {
+    text: "Mixing colors",
+  },
+  {
+    text: "Adding finishing touches",
+  },
+  {
+    text: "Welcome to your new logo!",
+  },
+];
 
 export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
   const {
@@ -47,7 +63,14 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
     brandAttributes: z.array(z.string()).default(brandAttributes),
   });
 
-  if (isPending) return <div>Loading...</div>;
+  if (isPending)
+    return (
+      <MultiStepLoader
+        loadingStates={loadingStates}
+        loading={isPending}
+        duration={1000}
+      />
+    );
 
   if (isError) return <div>Error</div>;
 
