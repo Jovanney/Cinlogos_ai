@@ -10,10 +10,10 @@ import {
 } from "@/components/ui/breadcrumb";
 import { multiModalType } from "@/components/ui/step-form/form-types";
 import MultiStepForm from "@/components/ui/step-form/multi-step-form";
-import { BrandAttributeForm } from "@/modules/generate-logo/components/forms/brand-attributes-form";
 import { CompanyForm } from "@/modules/generate-logo/components/forms/company-form";
 import { SegmentForm } from "@/modules/generate-logo/components/forms/segment-form";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
+import { BrandAttributeForm } from "@/modules/generate-soundtrack/components/forms/brand-attributes-form";
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
