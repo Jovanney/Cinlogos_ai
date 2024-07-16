@@ -10,16 +10,16 @@ import {
 } from "@/components/ui/breadcrumb";
 import { multiModalType } from "@/components/ui/step-form/form-types";
 import MultiStepForm from "@/components/ui/step-form/multi-step-form";
-import { BrandAttributeForm } from "@/modules/generate-logo/components/forms/brand-attributes-form";
 import { CompanyForm } from "@/modules/generate-logo/components/forms/company-form";
 import { SegmentForm } from "@/modules/generate-logo/components/forms/segment-form";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
+import { BrandAttributeForm } from "@/modules/generate-soundtrack/components/forms/brand-attributes-form";
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 
-export default function App() {
+export default function Page() {
   const [canContinue, setCanContinue] = React.useState(false);
   const [orderedForm, setGoToForm] = React.useState<number | undefined>();
   const searchParams = useSearchParams();
@@ -47,7 +47,7 @@ export default function App() {
     },
   ];
   return (
-    <ContentLayout title="Generate your logo">
+    <ContentLayout title="Generate your soundtrack">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -60,14 +60,14 @@ export default function App() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href={fromPage}>SoundTrack</Link>
+                  <Link href={fromPage}>Logo</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
             </>
           )}
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Logo</BreadcrumbPage>
+            <BreadcrumbPage>SoundTrack</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

@@ -23,7 +23,7 @@ function DefaultParent({ children }: { children: React.ReactNode }) {
 }
 
 export default function AutoFormObject<
-  SchemaType extends z.ZodObject<any, any>,
+  SchemaType extends z.ZodObject<any, any>
 >({
   schema,
   form,
@@ -100,18 +100,18 @@ export default function AutoFormObject<
             </AccordionItem>
           );
         }
-        if (zodBaseType === "ZodArray") {
-          return (
-            <AutoFormArray
-              key={key}
-              name={name}
-              item={item as unknown as z.ZodArray<any>}
-              form={form}
-              fieldConfig={fieldConfig?.[name] ?? {}}
-              path={[...path, name]}
-            />
-          );
-        }
+        // if (zodBaseType === "ZodArray") {
+        //   return (
+        //     <AutoFormArray
+        //       key={key}
+        //       name={name}
+        //       item={item as unknown as z.ZodArray<any>}
+        //       form={form}
+        //       fieldConfig={fieldConfig?.[name] ?? {}}
+        //       path={[...path, name]}
+        //     />
+        //   );
+        // }
 
         const fieldConfigItem: FieldConfigItem = fieldConfig?.[name] ?? {};
         const zodInputProps = zodToHtmlInputProps(item);
