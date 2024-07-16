@@ -59,9 +59,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const sunoAiResponse = await createLogo({ prompt: resultPrompt });
+    const deepAiResponse = await createLogo({ prompt: resultPrompt });
 
-    return NextResponse.json(sunoAiResponse);
+    return NextResponse.json(deepAiResponse);
   } catch (error) {
     console.error("Error generating logo:", error);
     return new NextResponse(

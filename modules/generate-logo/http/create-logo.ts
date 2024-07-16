@@ -1,11 +1,11 @@
-import { sunoApi } from "./api-client";
+import { deepAiApi } from "./api-client";
 
 interface GenerateLogoRequest {
   prompt: string;
 }
 
 export async function createLogo({ prompt }: GenerateLogoRequest) {
-  const response = await sunoApi.post("text2img", {
+  const response = await deepAiApi.post("text2img", {
     json: {
       text: prompt,
       image_generator_version: "Genius",

@@ -1,6 +1,6 @@
 import ky from "ky";
 
-export const sunoApi = ky.create({
+export const deepAiApi = ky.create({
   prefixUrl: "https://api.deepai.org/api/",
   hooks: {
     beforeRequest: [
