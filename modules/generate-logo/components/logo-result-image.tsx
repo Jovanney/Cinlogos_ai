@@ -8,6 +8,8 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { saveAs } from "file-saver";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface LogoResultModalProps {
   open: boolean;
@@ -23,6 +25,8 @@ export function LogoResultModal({
   const saveFile = () => {
     saveAs(imageUrl, `${companyName}.jpg`);
   };
+  const pathname = usePathname();
+
   return (
     <div className="py-40 flex items-center justify-center">
       <Modal>
@@ -33,7 +37,9 @@ export function LogoResultModal({
             </div>
           </ModalContent>
           <ModalFooter className="space-x-2">
-            <Button>Generate SoundTrack</Button>
+            <Link href={`/generate-soundtrack?from=${pathname}`}>
+              <Button>Generate SoundTrack</Button>
+            </Link>
             <Button className="hover:scale-105" onClick={saveFile}>
               Download
             </Button>
