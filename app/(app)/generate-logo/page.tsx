@@ -13,13 +13,24 @@ import MultiStepForm from "@/components/ui/step-form/multi-step-form";
 import { BrandAttributeForm } from "@/modules/generate-logo/components/forms/brand-attributes-form";
 import { CompanyForm } from "@/modules/generate-logo/components/forms/company-form";
 import { SegmentForm } from "@/modules/generate-logo/components/forms/segment-form";
+import { useCompanyStore } from "@/modules/generate-logo/stores";
 
 import Link from "next/link";
-import React from "react";
+import { useSearchParams } from "next/navigation";
+import React, { useEffect } from "react";
 
 export default function App() {
   const [canContinue, setCanContinue] = React.useState(false);
   const [orderedForm, setGoToForm] = React.useState<number | undefined>();
+  const searchParams = useSearchParams();
+  const fromPage = searchParams.get("from");
+  const reset = useCompanyStore((state) => state.resetCompanyStore);
+
+  useEffect(() => {
+    if (!fromPage) {
+      reset();
+    }
+  }, []);
 
   const Forms: multiModalType = [
     {
@@ -44,6 +55,16 @@ export default function App() {
               <Link href="/">Home</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
+          {fromPage && (
+            <>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href={fromPage}>SoundTrack</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+            </>
+          )}
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage>Logo</BreadcrumbPage>

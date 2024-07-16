@@ -20,19 +20,20 @@ interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SegmentFormSchema = z.object({
-  companySegment: z
-    .string()
-    .min(1, { message: "You need to select a company segment." }),
-  companySegmentOther: z.string().optional(),
-});
-
 export function SegmentForm({ setContinue }: CompanyFormProps) {
   const { setCompanySegment, company } = useCompanyStore((state) => {
     return {
       company: state.Segment,
       setCompanySegment: state.setSegment,
     };
+  });
+
+  const SegmentFormSchema = z.object({
+    companySegment: z
+      .string()
+      .min(1, { message: "You need to select a company segment." })
+      .default(company),
+    companySegmentOther: z.string().optional(),
   });
 
   return (

@@ -9,10 +9,10 @@ interface CompanyState {
   setSegment: (segment: string) => void;
   setSegmentOther: (segmentOther: string) => void;
   setAttributes: (attribute: string) => void;
-  reset: () => void;
+  resetCompanyStore: () => void;
 }
 
-const INITIAL_STATE = {
+const initialState = {
   Name: "",
   Segment: "",
   SegmentOther: "",
@@ -20,7 +20,7 @@ const INITIAL_STATE = {
 };
 
 export const useCompanyStore = create<CompanyState>((set) => ({
-  ...INITIAL_STATE,
+  ...initialState,
   setName: (name) => set({ Name: name }),
   setSegment: (segment) => set({ Segment: segment }),
   setSegmentOther: (segmentOther) => set({ SegmentOther: segmentOther }),
@@ -31,5 +31,7 @@ export const useCompanyStore = create<CompanyState>((set) => ({
         : [...state.Attributes, attribute],
     }));
   },
-  reset: () => set(INITIAL_STATE),
+  resetCompanyStore: () => {
+    set(initialState);
+  },
 }));

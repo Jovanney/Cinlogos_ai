@@ -26,6 +26,8 @@ export function CompanyForm({ setContinue }: CompanyFormProps) {
     };
   });
 
+  console.log("name:", name);
+
   const CompanyFormSchema = z.object({
     companyName: z
       .string({ required_error: "Company name is required" })
@@ -38,6 +40,7 @@ export function CompanyForm({ setContinue }: CompanyFormProps) {
 
   return (
     <AutoForm
+      values={{ companyName: name }}
       onSubmit={(value) => {
         if (!value.companyName) {
           setContinue(false);
