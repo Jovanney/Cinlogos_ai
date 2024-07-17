@@ -16,9 +16,10 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
 import MultipleSelectWithImages from "@/modules/generate-logo/components/multiple-select-with-image";
 import { createSoundTrack } from "@/http/create-soundtrack";
+import { SoundtrackResultModal } from "../soundtrack-result-modal";
 
-type ResponseGeneratedLogoType = {
-  output_url: string;
+type ResponseGeneratedSoundtrack = {
+  audio_url: string;
 };
 
 interface CompanyFormProps {
@@ -54,7 +55,7 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
     mutate,
     isPending,
     isError,
-    data: responseGeneratedLogo,
+    data: responseGeneratedSoundtrack,
   } = useMutation({
     mutationFn: createSoundTrack,
     onError: (error) => {
@@ -84,8 +85,16 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
         duration={1000}
       />
     );
-  if (responseGeneratedLogo) {
-    console.log("responseGeneratedLogo:", responseGeneratedLogo);
+  if (responseGeneratedSoundtrack) {
+    return (
+      <SoundtrackResultModal
+        open={!isPending}
+        companyName={companyName}
+        soundUrl={
+          (responseGeneratedSoundtrack as ResponseGeneratedSoundtrack).audio_url
+        }
+      />
+    );
   }
 
   if (isError) return <div>Error</div>;
