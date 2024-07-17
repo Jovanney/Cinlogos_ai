@@ -21,9 +21,11 @@ import React, { useEffect } from "react";
 
 export default function App() {
   const [canContinue, setCanContinue] = React.useState(false);
-  const [orderedForm, setGoToForm] = React.useState<number | undefined>();
   const searchParams = useSearchParams();
   const fromPage = searchParams.get("from");
+  const [orderedForm, setGoToForm] = React.useState<number | undefined>(
+    fromPage ? 3 : undefined
+  );
   const reset = useCompanyStore((state) => state.resetCompanyStore);
 
   useEffect(() => {
