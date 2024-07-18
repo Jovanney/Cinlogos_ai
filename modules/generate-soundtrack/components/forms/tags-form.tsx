@@ -14,15 +14,16 @@ import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
-import MultipleSelectWithImages from "@/modules/generate-logo/components/multiple-select-with-image";
 import { createSoundTrack } from "@/http/create-soundtrack";
 import { SoundtrackResultModal } from "../soundtrack-result-modal";
+
+import TagCardOption from "../tag-card-option";
 
 type ResponseGeneratedSoundtrack = {
   audio_url: string;
 };
 
-interface CompanyFormProps {
+interface TagsFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -74,23 +75,66 @@ const loadingStates = [
   },
 ];
 
-export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
-  const { brandAttributes, setBrandAttributes } = useCompanyStore((state) => {
-    return {
-      brandAttributes: state.Attributes,
-      setBrandAttributes: state.setAttributes,
-    };
+export function TagsForm({ setContinue }: TagsFormProps) {
+  const {
+    mutate,
+    isPending,
+    isError,
+    data: responseGeneratedSoundtrack,
+  } = useMutation({
+    mutationFn: createSoundTrack,
+    onError: (error) => {
+      console.error("Mutation failed:", error);
+    },
   });
 
-  const BrandAttributeSchema = z.object({
-    brandAttributes: z.array(z.string()).default(brandAttributes),
+  const { brandAttributes, companyName, companyIndustry, tags, setTags } =
+    useCompanyStore((state) => {
+      return {
+        brandAttributes: state.Attributes,
+        companyName: state.Name,
+        companyIndustry: state.Industry,
+        tags: state.tags,
+        setTags: state.setTags,
+      };
+    });
+
+  const TagsSchema = z.object({
+    tags: z
+      .string()
+      .min(2, { message: "You should select an option" })
+      .default(tags),
   });
+
+  if (isPending)
+    return (
+      <MultiStepLoader
+        loadingStates={loadingStates}
+        loading={isPending}
+        duration={1000}
+      />
+    );
+  if (Array.isArray(responseGeneratedSoundtrack)) {
+    console.log("responseGeneratedSoundtrack:", responseGeneratedSoundtrack);
+    return (
+      <SoundtrackResultModal
+        open={!isPending}
+        companyName={companyName}
+        soundUrl={
+          (responseGeneratedSoundtrack[0] as ResponseGeneratedSoundtrack)
+            .audio_url
+        }
+      />
+    );
+  }
+
+  if (isError) return <div>Error</div>;
 
   return (
     <AutoForm
-      values={{ brandAttributes: brandAttributes }}
+      values={{ tags: tags }}
       fieldConfig={{
-        brandAttributes: {
+        tags: {
           fieldType: ({
             field,
             label,
@@ -102,54 +146,30 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
               className="flex gap-2 flex-col items-center space-x-3 space-y-0 rounded-md p-4 w-full"
             >
               <FormLabel htmlFor="brand-attributes">
-                <span className="text-2xl text-center">{label}</span>
+                <span className="text-2xl text-center">Your Singer</span>
                 {isRequired && (
                   <span className="text-destructive dark:text-red-500"> *</span>
                 )}
               </FormLabel>
               <FormControl>
-                <MultipleSelectWithImages
-                  options={[
-                    {
-                      value: "Restaurant",
-                      image: "https://via.placeholder.com/150",
-                    },
-                    {
-                      value: "Consulting",
-                      image: "https://via.placeholder.com/150",
-                    },
-                    {
-                      value: "Beauty",
-                      image: "https://via.placeholder.com/150",
-                    },
-                    {
-                      value: "Photography",
-                      image: "https://via.placeholder.com/150",
-                    },
-                    {
-                      value: "Mock",
-                      image: "https://via.placeholder.com/150",
-                    },
-                    {
-                      value: "Mock 2",
-                      image: "https://via.placeholder.com/150",
-                    },
-                    {
-                      value: "Mock 3",
-                      image: "https://via.placeholder.com/150",
-                    },
-                    {
-                      value: "Mock 4",
-                      image: "https://via.placeholder.com/150",
-                    },
-                    {
-                      value: "Mock 5",
-                      image: "https://via.placeholder.com/150",
-                    },
-                  ]}
-                  values={field.value}
-                  onChange={setBrandAttributes}
-                />
+                <div className="flex items-center justify-center gap-5 pt-2">
+                  <TagCardOption
+                    title={"Female singer"}
+                    description={""}
+                    image={"https://via.placeholder.com/500"}
+                    onChange={setTags}
+                    selectedOption={tags}
+                    value={"female singer"}
+                  />
+                  <TagCardOption
+                    title={"Male singer"}
+                    description={""}
+                    image={"https://via.placeholder.com/500"}
+                    selectedOption={tags}
+                    onChange={setTags}
+                    value={"male singer"}
+                  />
+                </div>
               </FormControl>
               <div className="space-y-1 leading-none">
                 {fieldConfigItem.description && (
@@ -164,13 +184,13 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
         },
       }}
       onSubmit={(value) => {
-        if (!value.brandAttributes) {
+        if (!value.tags) {
           setContinue(false);
         } else {
-          setContinue(true);
+          mutate({ brandAttributes, companyName, companyIndustry, tags });
         }
       }}
-      formSchema={BrandAttributeSchema}
+      formSchema={TagsSchema}
     />
   );
 }

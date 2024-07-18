@@ -6,6 +6,7 @@ interface RequestData {
   brandAttributes: string[];
   companyName: string;
   companyIndustry: string;
+  tags: string;
 }
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -17,7 +18,8 @@ export async function POST(request: NextRequest) {
     if (
       !requestBody.brandAttributes ||
       !requestBody.companyName ||
-      !requestBody.companyIndustry
+      !requestBody.companyIndustry ||
+      !requestBody.tags
     ) {
       return new NextResponse(
         JSON.stringify({ error: "Missing required fields" }),
@@ -30,7 +32,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { brandAttributes, companyName, companyIndustry } = requestBody;
+    const { brandAttributes, companyName, companyIndustry, tags } = requestBody;
     const prompt = `Escreva uma letra sobre uma empresa chamada ${companyName}, do ramo de ${companyIndustry}, e tem como caracteristicas da empresa: ${brandAttributes.join(
       ", "
     )}`;
@@ -63,13 +65,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const deepAiResponse = await createSoundtrack({
+    const sunoAiResponse = await createSoundtrack({
       lyrics: resultPrompt,
-      tags: "Gospel female singer",
+      tags,
       title: companyName,
     });
 
-    return NextResponse.json(deepAiResponse);
+    return NextResponse.json(sunoAiResponse);
   } catch (error) {
     console.error("Error generating logo:", error);
     return new NextResponse(

@@ -4,18 +4,21 @@ interface GenerateRequestData {
   brandAttributes: string[];
   companyName: string;
   companyIndustry: string;
+  tags: string;
 }
 
 export async function createSoundTrack({
   brandAttributes,
   companyName,
   companyIndustry,
+  tags,
 }: GenerateRequestData) {
   const response = await api.post("create-soundtrack", {
     json: {
       brandAttributes,
       companyName,
       companyIndustry,
+      tags,
     },
   });
 
