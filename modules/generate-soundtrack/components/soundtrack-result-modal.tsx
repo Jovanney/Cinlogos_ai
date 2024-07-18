@@ -41,6 +41,9 @@ export function SoundtrackResultModal({
             <Link href={`/generate-soundtrack?from=${pathname}`}>
               <Button>Generate SoundTrack</Button>
             </Link>
+            <Link href={soundUrl}>
+              <Button>Listen to the SoundTrack</Button>
+            </Link>
             <Button className="hover:scale-105" onClick={saveFile}>
               Download
             </Button>

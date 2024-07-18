@@ -5,7 +5,7 @@ import OpenAI from "openai";
 interface RequestData {
   brandAttributes: string[];
   companyName: string;
-  companySegment: string;
+  companyIndustry: string;
 }
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     if (
       !requestBody.brandAttributes ||
       !requestBody.companyName ||
-      !requestBody.companySegment
+      !requestBody.companyIndustry
     ) {
       return new NextResponse(
         JSON.stringify({ error: "Missing required fields" }),
@@ -30,8 +30,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { brandAttributes, companyName, companySegment } = requestBody;
-    const prompt = `Escreva uma letra sobre uma empresa chamada ${companyName}, do ramo de ${companySegment}, e tem como caracteristicas da empresa: ${brandAttributes.join(
+    const { brandAttributes, companyName, companyIndustry } = requestBody;
+    const prompt = `Escreva uma letra sobre uma empresa chamada ${companyName}, do ramo de ${companyIndustry}, e tem como caracteristicas da empresa: ${brandAttributes.join(
       ", "
     )}`;
 

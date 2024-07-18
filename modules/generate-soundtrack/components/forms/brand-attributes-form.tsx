@@ -28,25 +28,49 @@ interface CompanyFormProps {
 
 const loadingStates = [
   {
-    text: "Sketching your logo",
+    text: "Composing your melody",
   },
   {
-    text: "Mixing colors",
+    text: "Finding the perfect beat",
   },
   {
-    text: "Adding finishing touches",
+    text: "Mixing harmonies",
   },
   {
-    text: "Polishing your logo",
+    text: "Layering the tracks",
   },
   {
-    text: "Almost there!",
+    text: "Balancing the volumes",
   },
   {
-    text: "Your logo is ready! 🎉",
+    text: "Adding rhythm",
   },
   {
-    text: "Welcome to your new logo!",
+    text: "Refining the tempo",
+  },
+  {
+    text: "Tuning the instruments",
+  },
+  {
+    text: "Creating transitions",
+  },
+  {
+    text: "Incorporating effects",
+  },
+  {
+    text: "Finalizing the mix",
+  },
+  {
+    text: "Polishing the sound",
+  },
+  {
+    text: "Mastering the track",
+  },
+  {
+    text: "Reviewing the composition",
+  },
+  {
+    text: "Your soundtrack is ready! 🎶",
   },
 ];
 
@@ -63,13 +87,13 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
     },
   });
 
-  const { brandAttributes, setBrandAttributes, companyName, companySegment } =
+  const { brandAttributes, setBrandAttributes, companyName, companyIndustry } =
     useCompanyStore((state) => {
       return {
         brandAttributes: state.Attributes,
         setBrandAttributes: state.setAttributes,
         companyName: state.Name,
-        companySegment: state.Segment,
+        companyIndustry: state.Industry,
       };
     });
 
@@ -86,6 +110,7 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
       />
     );
   if (responseGeneratedSoundtrack) {
+    console.log("responseGeneratedSoundtrack:", responseGeneratedSoundtrack);
     return (
       <SoundtrackResultModal
         open={!isPending}
@@ -180,7 +205,7 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
         if (!value.brandAttributes) {
           setContinue(false);
         } else {
-          mutate({ brandAttributes, companyName, companySegment });
+          mutate({ brandAttributes, companyName, companyIndustry });
         }
       }}
       formSchema={BrandAttributeSchema}
