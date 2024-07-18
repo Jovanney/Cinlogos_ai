@@ -17,7 +17,7 @@ export async function createSoundtrack({
       title,
       tags,
       make_instrumental: true,
-      wait_audio: true,
+      wait_audio: false,
     },
   });
 
