@@ -9,7 +9,10 @@ interface RequestData {
   tags: string;
 }
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+  timeout: 120000,
+});
 
 export async function POST(request: NextRequest) {
   try {
@@ -52,6 +55,8 @@ export async function POST(request: NextRequest) {
     });
 
     const resultPrompt = completion.choices[0].message.content;
+
+    console.log("resultPrompt:", resultPrompt);
 
     if (!resultPrompt) {
       return new NextResponse(
