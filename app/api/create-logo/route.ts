@@ -4,7 +4,7 @@ import OpenAI from "openai";
 interface RequestData {
   brandAttributes: string[];
   companyName: string;
-  companySegment: string;
+  companyIndustry: string;
 }
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     if (
       !requestBody.brandAttributes ||
       !requestBody.companyName ||
-      !requestBody.companySegment
+      !requestBody.companyIndustry
     ) {
       return new NextResponse(
         JSON.stringify({ error: "Missing required fields" }),
@@ -29,16 +29,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { brandAttributes, companyName, companySegment } = requestBody;
+    const { brandAttributes, companyName, companyIndustry } = requestBody;
 
     const prompt = `Generate a logo for a ${brandAttributes.join(
       ", "
-    )} company named ${companyName} in the ${companySegment} segment.`;
+    )} company named ${companyName} in the ${companyIndustry} industry.`;
 
     const completion = await openai.chat.completions.create({
       messages: [
         {
           role: "system",
+          content: "You are a prompt engineer for AI logo generation",
+        },
+        {
+          role: "user",
           content: `Improve this prompt it will be used to generate a logo with AI, the prompt: ${prompt}`,
         },
       ],

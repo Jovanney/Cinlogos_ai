@@ -12,7 +12,7 @@ import { multiModalType } from "@/components/ui/step-form/form-types";
 import MultiStepForm from "@/components/ui/step-form/multi-step-form";
 import { BrandAttributeForm } from "@/modules/generate-logo/components/forms/brand-attributes-form";
 import { CompanyForm } from "@/modules/generate-logo/components/forms/company-form";
-import { IndustryForm } from "@/modules/generate-logo/components/forms/segment-form";
+import { IndustryForm } from "@/modules/generate-logo/components/forms/industry-form";
 import { SloganForm } from "@/modules/generate-logo/components/forms/slogan-form";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
 
@@ -48,8 +48,9 @@ export default function App() {
       formLabel: "Your company industry",
       form: <IndustryForm setContinue={setCanContinue} />,
     },
+    //TO DO REFACTOR BRAND PERSONALITY
     {
-      formLabel: "Your brand attributes",
+      formLabel: "Your brand personality",
       form: <BrandAttributeForm setContinue={setCanContinue} />,
     },
   ];

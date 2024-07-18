@@ -43,6 +43,9 @@ const loadingStates = [
     text: "Almost there!",
   },
   {
+    text: "Adding final touches",
+  },
+  {
     text: "Your logo is ready! 🎉",
   },
   {
@@ -63,13 +66,13 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
     },
   });
 
-  const { brandAttributes, setBrandAttributes, companyName, companySegment } =
+  const { brandAttributes, setBrandAttributes, companyName, companyIndustry } =
     useCompanyStore((state) => {
       return {
         brandAttributes: state.Attributes,
         setBrandAttributes: state.setAttributes,
         companyName: state.Name,
-        companySegment: state.Segment,
+        companyIndustry: state.Industry,
       };
     });
 
@@ -115,7 +118,9 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
               className="flex gap-2 flex-col items-center space-x-3 space-y-0 rounded-md p-4 w-full"
             >
               <FormLabel htmlFor="brand-attributes">
-                <span className="text-2xl text-center">{label}</span>
+                <span className="text-2xl text-center">
+                  Brand Personalities
+                </span>
                 {isRequired && (
                   <span className="text-destructive dark:text-red-500"> *</span>
                 )}
@@ -124,39 +129,39 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
                 <MultipleSelectWithImages
                   options={[
                     {
-                      value: "Restaurant",
+                      value: "Professional",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Consulting",
+                      value: "Innovative",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Beauty",
+                      value: "Trustworthy",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Photography",
+                      value: "Fun",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock",
+                      value: "Elegant",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock 2",
+                      value: "Adventurous",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock 3",
+                      value: "Friendly",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock 4",
+                      value: "Sophisticated",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock 5",
+                      value: "Others",
                       image: "https://via.placeholder.com/150",
                     },
                   ]}
@@ -180,7 +185,7 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
         if (!value.brandAttributes) {
           setContinue(false);
         } else {
-          mutate({ brandAttributes, companyName, companySegment });
+          mutate({ brandAttributes, companyName, companyIndustry });
         }
       }}
       formSchema={BrandAttributeSchema}

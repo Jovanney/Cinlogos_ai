@@ -3,19 +3,19 @@ import { api } from "./api-client";
 interface GenerateRequestData {
   brandAttributes: string[];
   companyName: string;
-  companySegment: string;
+  companyIndustry: string;
 }
 
 export async function createLogo({
   brandAttributes,
   companyName,
-  companySegment,
+  companyIndustry,
 }: GenerateRequestData) {
   const response = await api.post("create-logo", {
     json: {
       brandAttributes,
       companyName,
-      companySegment,
+      companyIndustry,
     },
   });
 
