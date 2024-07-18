@@ -1,5 +1,13 @@
 "use client";
 import AutoForm from "@/components/ui/auto-form";
+import TecnologyOptionImage from "@/public/tecnologyOption.webp";
+import HealcareOptionImage from "@/public/healthcareOption.webp";
+import FinanceOptionImage from "@/public/financeOption.webp";
+import RetailOptionImage from "@/public/retailOption.webp";
+import FoodOptionImage from "@/public/foodOption.webp";
+import EducationOptionImage from "@/public/educationOption.webp";
+import TravelOptionImage from "@/public/travelOption.webp";
+import AutomotivoOptionImage from "@/public/automotivoOption.webp";
 import {
   AutoFormInputComponentProps,
   DependencyType,
@@ -16,36 +24,36 @@ import { z } from "zod";
 import SelectWithImages from "../select-with-image";
 import { useCompanyStore } from "../../stores";
 
-interface CompanyFormProps {
+interface IndustryFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function SegmentForm({ setContinue }: CompanyFormProps) {
-  const { setCompanySegment, company } = useCompanyStore((state) => {
+export function IndustryForm({ setContinue }: IndustryFormProps) {
+  const { setCompanyIndustry, industry } = useCompanyStore((state) => {
     return {
-      company: state.Segment,
-      setCompanySegment: state.setSegment,
+      industry: state.Industry,
+      setCompanyIndustry: state.setIndustry,
     };
   });
 
-  const SegmentFormSchema = z.object({
-    companySegment: z
+  const IndustryFormSchema = z.object({
+    companyIndustry: z
       .string()
-      .min(1, { message: "You need to select a company segment." })
-      .default(company),
-    companySegmentOther: z.string().optional(),
+      .min(1, { message: "You need to select your company industry." })
+      .default(industry),
+    companyIndustryOther: z.string().optional(),
   });
 
   return (
     <AutoForm
-      values={{ companySegment: company }}
+      values={{ companyIndustry: industry }}
       onValuesChange={(values) => {
-        if (values.companySegment) {
-          setCompanySegment(values.companySegment);
+        if (values.companyIndustry) {
+          setCompanyIndustry(values.companyIndustry);
         }
       }}
       fieldConfig={{
-        companySegment: {
+        companyIndustry: {
           fieldType: ({
             field,
             label,
@@ -66,39 +74,39 @@ export function SegmentForm({ setContinue }: CompanyFormProps) {
                 <SelectWithImages
                   options={[
                     {
-                      value: "Restaurant",
-                      image: "https://via.placeholder.com/150",
+                      value: "Technology",
+                      image: TecnologyOptionImage.src,
                     },
                     {
-                      value: "Consulting",
-                      image: "https://via.placeholder.com/150",
+                      value: "Healthcare",
+                      image: HealcareOptionImage.src,
                     },
                     {
-                      value: "Beauty",
-                      image: "https://via.placeholder.com/150",
+                      value: "Finance",
+                      image: FinanceOptionImage.src,
                     },
                     {
-                      value: "Photography",
-                      image: "https://via.placeholder.com/150",
+                      value: "Retail",
+                      image: RetailOptionImage.src,
                     },
                     {
-                      value: "Mock",
-                      image: "https://via.placeholder.com/150",
+                      value: "Food and Beverage",
+                      image: FoodOptionImage.src,
                     },
                     {
-                      value: "Mock 2",
-                      image: "https://via.placeholder.com/150",
+                      value: "Education",
+                      image: EducationOptionImage.src,
                     },
                     {
-                      value: "Mock 3",
-                      image: "https://via.placeholder.com/150",
+                      value: "Travel and Hospitality",
+                      image: TravelOptionImage.src,
                     },
                     {
-                      value: "Mock 4",
-                      image: "https://via.placeholder.com/150",
+                      value: "Automotive",
+                      image: AutomotivoOptionImage.src,
                     },
                     {
-                      value: "Mock 5",
+                      value: "Other",
                       image: "https://via.placeholder.com/150",
                     },
                   ]}
@@ -120,27 +128,27 @@ export function SegmentForm({ setContinue }: CompanyFormProps) {
       }}
       dependencies={[
         {
-          sourceField: "companySegment",
-          targetField: "companySegmentOther",
+          sourceField: "companyIndustry",
+          targetField: "companyIndustryOther",
           type: DependencyType.HIDES,
           when: (value) => value !== "Other",
         },
 
         {
-          sourceField: "companySegment",
-          targetField: "companySegmentOther",
+          sourceField: "companyIndustry",
+          targetField: "companyIndustryOther",
           type: DependencyType.REQUIRES,
           when: (value) => value === "Other",
         },
       ]}
       onSubmit={(value) => {
-        if (!value.companySegment) {
+        if (!value.companyIndustry) {
           setContinue(false);
         } else {
           setContinue(true);
         }
       }}
-      formSchema={SegmentFormSchema}
+      formSchema={IndustryFormSchema}
     />
   );
 }

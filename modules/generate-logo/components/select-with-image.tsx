@@ -1,5 +1,6 @@
 import { MagicCard } from "@/components/ui/magic-card";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import React from "react";
 
 interface SelectWithImagesProps {
@@ -27,8 +28,14 @@ export default function SelectWithImages({
           }`}
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
         >
-          <span className="flex items-end gap-2 justify-start w-full">
-            <img src={option.image} alt={option.value} />
+          <span className="flex items-end gap-2 justify-start w-full ">
+            <Image
+              className="bg-white"
+              width={150}
+              height={150}
+              src={option.image}
+              alt={option.value}
+            />
             {option.value}
           </span>
         </MagicCard>
