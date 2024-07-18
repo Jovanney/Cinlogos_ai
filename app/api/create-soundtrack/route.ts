@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { brandAttributes, companyName, companyIndustry, tags } = requestBody;
-    const prompt = `Escreva uma pequena letra de no máximo 20 segudos sobre uma empresa chamada ${companyName}, do ramo de ${companyIndustry}, e tem como caracteristicas da empresa: ${brandAttributes.join(
+    const prompt = `Take a deep breath and write strictly in pt-br a 20 seconds lyric of the company ${companyName}, field ${companyIndustry}, and have caracteristcs like: ${brandAttributes.join(
       ", "
     )}`;
 
