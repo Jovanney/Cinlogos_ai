@@ -13,6 +13,7 @@ import MultiStepForm from "@/components/ui/step-form/multi-step-form";
 import { BrandAttributeForm } from "@/modules/generate-logo/components/forms/brand-attributes-form";
 import { CompanyForm } from "@/modules/generate-logo/components/forms/company-form";
 import { SegmentForm } from "@/modules/generate-logo/components/forms/segment-form";
+import { SloganForm } from "@/modules/generate-logo/components/forms/slogan-form";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
 
 import Link from "next/link";
@@ -38,6 +39,10 @@ export default function App() {
     {
       formLabel: "Your company name",
       form: <CompanyForm setContinue={setCanContinue} />,
+    },
+    {
+      formLabel: "Your company slogan",
+      form: <SloganForm setContinue={setCanContinue} />,
     },
     {
       formLabel: "Your company segment",

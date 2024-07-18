@@ -14,41 +14,35 @@ import React from "react";
 import * as z from "zod";
 import { useCompanyStore } from "../../stores";
 
-interface CompanyFormProps {
+interface SloganFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function CompanyForm({ setContinue }: CompanyFormProps) {
-  const { setName, name } = useCompanyStore((state) => {
+export function SloganForm({ setContinue }: SloganFormProps) {
+  const { setSlogan, slogan } = useCompanyStore((state) => {
     return {
-      setName: state.setName,
-      name: state.Name,
+      setSlogan: state.setSlogan,
+      slogan: state.Slogan,
     };
   });
 
-  const CompanyFormSchema = z.object({
-    companyName: z
-      .string({ required_error: "Company name is required" })
-      .min(2, {
-        message: "Company name must be at least 2 characters long",
-      })
-      .describe("Enter the name of your company")
-      .default(name),
+  const SloganFormSchema = z.object({
+    slogan: z
+      .string()
+      .describe("Enter the slogan of your company")
+      .optional()
+      .default(slogan ? slogan : ""),
   });
 
   return (
     <AutoForm
-      values={{ companyName: name }}
+      values={{ slogan: slogan }}
       onSubmit={(value) => {
-        if (!value.companyName) {
-          setContinue(false);
-        } else {
-          setName(value.companyName);
-          setContinue(true);
-        }
+        setSlogan(value.slogan);
+        setContinue(true);
       }}
       fieldConfig={{
-        companyName: {
+        slogan: {
           fieldType: ({
             field,
             label,
@@ -58,9 +52,6 @@ export function CompanyForm({ setContinue }: CompanyFormProps) {
             <FormItem className="flex gap-2 flex-col items-center space-x-3 space-y-0 rounded-md p-4 w-full">
               <FormLabel htmlFor="company-name">
                 <span className="text-2xl text-center">{label}</span>
-                {isRequired && (
-                  <span className="text-destructive dark:text-red-500"> *</span>
-                )}
               </FormLabel>
               <FormControl>
                 <Textarea
@@ -82,7 +73,7 @@ export function CompanyForm({ setContinue }: CompanyFormProps) {
           ),
         },
       }}
-      formSchema={CompanyFormSchema}
+      formSchema={SloganFormSchema}
     />
   );
 }
