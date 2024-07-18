@@ -14,6 +14,8 @@ const openai = new OpenAI({
   timeout: 120000,
 });
 
+export const maxDuration = 60;
+
 export async function POST(request: NextRequest) {
   try {
     const requestBody: RequestData = await request.json();
