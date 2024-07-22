@@ -47,11 +47,11 @@ export async function POST(request: NextRequest) {
       messages: [
         {
           role: "system",
-          content: "You are a prompt engineer for AI logo generation",
+          content: "You are a professional prompt engineer with over 10 years of experience in AI-driven design and logo creation. Your role is to enhance and refine user inputs to generate the most effective and creative AI prompts for logo design.",
         },
         {
           role: "user",
-          content: `Improve this prompt it will be used to generate a logo with AI, the prompt: ${prompt}`,
+          content: `I need your help to improve the following prompt for generating a logo with AI. The goal is to make the prompt clearer, more detailed, and better suited for generating high-quality, creative logos. Here is the prompt to be improved: ${prompt}`,
         },
       ],
       model: "gpt-4o-2024-05-13",
