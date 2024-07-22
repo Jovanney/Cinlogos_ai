@@ -9,6 +9,8 @@ interface RequestData {
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
+export const maxDuration = 60;
+
 export async function POST(request: NextRequest) {
   try {
     const requestBody: RequestData = await request.json();
