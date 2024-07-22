@@ -31,9 +31,17 @@ export async function POST(request: NextRequest) {
 
     const { brandAttributes, companyName, companyIndustry } = requestBody;
 
-    const prompt = `Generate a logo for a ${brandAttributes.join(
+    const prompt = `Create a logo for "${companyName}" that conveys ${brandAttributes.join(
       ", "
-    )} company named ${companyName} in the ${companyIndustry} industry.`;
+    )} in the ${companyIndustry} industry. The logo should include the following elements:
+
+    Main Icon: A design that reflects the core aspects of the company, drawn with fine and detailed lines.
+    Color Palette: Use a sophisticated color scheme that aligns with the company's attributes.
+    Typography: Choose a font that embodies elegance and professionalism. Ensure the typography is legible with adequate spacing.
+    Style and Layout: The design should be balanced and centered. The icon should complement the company name with harmonious proportions.
+    Texture and Finish: Add subtle effects to enhance the overall quality and appeal of the logo. Ensure a clean and polished look.
+
+    The logo should be modern, memorable, and versatile for various applications, including digital and print media.`;
 
     const completion = await openai.chat.completions.create({
       messages: [
