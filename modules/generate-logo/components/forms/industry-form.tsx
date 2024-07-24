@@ -8,6 +8,7 @@ import FoodOptionImage from "@/public/foodOption.webp";
 import EducationOptionImage from "@/public/educationOption.webp";
 import TravelOptionImage from "@/public/travelOption.webp";
 import AutomotivoOptionImage from "@/public/automotivoOption.webp";
+import OtherOptionImage from "@/public/otherOption.webp";
 import {
   AutoFormInputComponentProps,
   DependencyType,
@@ -29,19 +30,22 @@ interface IndustryFormProps {
 }
 
 export function IndustryForm({ setContinue }: IndustryFormProps) {
-  const { setCompanyIndustry, industry } = useCompanyStore((state) => {
-    return {
-      industry: state.Industry,
-      setCompanyIndustry: state.setIndustry,
-    };
-  });
+  const { setCompanyIndustry, industry, setIndustryOther, industryOther } =
+    useCompanyStore((state) => {
+      return {
+        industry: state.Industry,
+        setCompanyIndustry: state.setIndustry,
+        setIndustryOther: state.setIndustryOther,
+        industryOther: state.IndustryOther,
+      };
+    });
 
   const IndustryFormSchema = z.object({
     companyIndustry: z
       .string()
       .min(1, { message: "You need to select your company industry." })
       .default(industry),
-    companyIndustryOther: z.string().optional(),
+    companyIndustryOther: z.string().optional().default(industryOther),
   });
 
   return (
@@ -107,7 +111,7 @@ export function IndustryForm({ setContinue }: IndustryFormProps) {
                     },
                     {
                       value: "Other",
-                      image: "https://via.placeholder.com/150",
+                      image: OtherOptionImage.src,
                     },
                   ]}
                   value={field.value}
@@ -145,6 +149,9 @@ export function IndustryForm({ setContinue }: IndustryFormProps) {
         if (!value.companyIndustry) {
           setContinue(false);
         } else {
+          if (value.companyIndustry === "Other" && value.companyIndustryOther) {
+            setIndustryOther(value.companyIndustryOther);
+          }
           setContinue(true);
         }
       }}

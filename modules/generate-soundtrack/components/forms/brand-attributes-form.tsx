@@ -111,39 +111,39 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
                 <MultipleSelectWithImages
                   options={[
                     {
-                      value: "Restaurant",
+                      value: "Professional",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Consulting",
+                      value: "Innovative",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Beauty",
+                      value: "Trustworthy",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Photography",
+                      value: "Fun",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock",
+                      value: "Elegant",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock 2",
+                      value: "Adventurous",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock 3",
+                      value: "Friendly",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock 4",
+                      value: "Sophisticated",
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Mock 5",
+                      value: "Others",
                       image: "https://via.placeholder.com/150",
                     },
                   ]}

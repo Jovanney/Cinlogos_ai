@@ -12,7 +12,6 @@ import { multiModalType } from "@/components/ui/step-form/form-types";
 import MultiStepForm from "@/components/ui/step-form/multi-step-form";
 import { CompanyForm } from "@/modules/generate-logo/components/forms/company-form";
 import { IndustryForm } from "@/modules/generate-logo/components/forms/industry-form";
-import { SloganForm } from "@/modules/generate-logo/components/forms/slogan-form";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
 import { BrandAttributeForm } from "@/modules/generate-soundtrack/components/forms/brand-attributes-form";
 import { TagsForm } from "@/modules/generate-soundtrack/components/forms/tags-form";
@@ -40,10 +39,6 @@ export default function Page() {
     {
       formLabel: "Your company name",
       form: <CompanyForm setContinue={setCanContinue} />,
-    },
-    {
-      formLabel: "Your company slogan",
-      form: <SloganForm setContinue={setCanContinue} />,
     },
     {
       formLabel: "Your company industry",
