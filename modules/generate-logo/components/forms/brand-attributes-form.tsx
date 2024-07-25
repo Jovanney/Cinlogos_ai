@@ -17,6 +17,15 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createLogo } from "@/http/create-logo";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 import { LogoResultModal } from "../logo-result-image";
+import OtherImage from "@/public/otherOption.webp";
+import Professional from "@/public/professional.webp";
+import Innovative from "@/public/innovative.webp";
+import Trustworthy from "@/public/trustworthy.webp";
+import Fun from "@/public/fun.webp";
+import Elegant from "@/public/elegant.webp";
+import Adventurous from "@/public/adventurous.webp";
+import Friendly from "@/public/friendly.webp";
+import Sustentable from "@/public/sustentable.webp";
 
 type ResponseGeneratedLogoType = {
   output_url: string;
@@ -130,39 +139,39 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
                   options={[
                     {
                       value: "Professional",
-                      image: "https://via.placeholder.com/150",
+                      image: Professional.src,
                     },
                     {
                       value: "Innovative",
-                      image: "https://via.placeholder.com/150",
+                      image: Innovative.src,
                     },
                     {
                       value: "Trustworthy",
-                      image: "https://via.placeholder.com/150",
+                      image: Trustworthy.src,
                     },
                     {
                       value: "Fun",
-                      image: "https://via.placeholder.com/150",
+                      image: Fun.src,
                     },
                     {
                       value: "Elegant",
-                      image: "https://via.placeholder.com/150",
+                      image: Elegant.src,
                     },
                     {
                       value: "Adventurous",
-                      image: "https://via.placeholder.com/150",
+                      image: Adventurous.src,
                     },
                     {
                       value: "Friendly",
-                      image: "https://via.placeholder.com/150",
+                      image: Friendly.src,
                     },
                     {
-                      value: "Sophisticated",
-                      image: "https://via.placeholder.com/150",
+                      value: "Sustentable",
+                      image: Sustentable.src,
                     },
                     {
-                      value: "Others",
-                      image: "https://via.placeholder.com/150",
+                      value: "Other",
+                      image: OtherImage.src,
                     },
                   ]}
                   values={field.value}
