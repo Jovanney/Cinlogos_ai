@@ -120,16 +120,29 @@ export function TagsForm({ setContinue }: TagsFormProps) {
     },
   });
 
-  const { brandAttributes, companyName, companyIndustry, tags, setTags } =
-    useCompanyStore((state) => {
-      return {
-        brandAttributes: state.Attributes,
-        companyName: state.Name,
-        companyIndustry: state.Industry,
-        tags: state.tags,
-        setTags: state.setTags,
-      };
-    });
+  const {
+    brandAttributes,
+    companyName,
+    companyIndustry,
+    tags,
+    setTags,
+    brandAttributesOther,
+    companyIndustryOther,
+    musicStyle,
+    musicStyleOther,
+  } = useCompanyStore((state) => {
+    return {
+      brandAttributes: state.Attributes,
+      companyName: state.Name,
+      companyIndustry: state.Industry,
+      tags: state.tags,
+      setTags: state.setTags,
+      brandAttributesOther: state.AttributesOther,
+      companyIndustryOther: state.IndustryOther,
+      musicStyle: state.styleOfMusic,
+      musicStyleOther: state.styleOfMusicOther,
+    };
+  });
 
   const TagsSchema = z.object({
     tags: z
@@ -219,7 +232,16 @@ export function TagsForm({ setContinue }: TagsFormProps) {
         if (!value.tags) {
           setContinue(false);
         } else {
-          mutate({ brandAttributes, companyName, companyIndustry, tags });
+          mutate({
+            brandAttributes,
+            companyName,
+            companyIndustry,
+            tags,
+            brandAttributesOther,
+            companyIndustryOther,
+            musicStyle,
+            musicStyleOther,
+          });
         }
       }}
       formSchema={TagsSchema}

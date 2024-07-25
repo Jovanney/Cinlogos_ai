@@ -1,12 +1,15 @@
-import { createLogo } from "@/modules/generate-logo/http/create-logo";
 import { createSoundtrack } from "@/modules/generate-soundtrack/http/create-soundtrack";
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 interface RequestData {
   brandAttributes: string[];
+  brandAttributesOther: string;
   companyName: string;
   companyIndustry: string;
+  companyIndustryOther: string;
   tags: string;
+  musicStyle: string[];
+  musicStyleOther: string;
 }
 
 const openai = new OpenAI({
@@ -19,12 +22,13 @@ export const maxDuration = 60;
 export async function POST(request: NextRequest) {
   try {
     const requestBody: RequestData = await request.json();
-
+    console.log("requestBody:", requestBody);
     if (
       !requestBody.brandAttributes ||
       !requestBody.companyName ||
       !requestBody.companyIndustry ||
-      !requestBody.tags
+      !requestBody.tags ||
+      !requestBody.musicStyle
     ) {
       return new NextResponse(
         JSON.stringify({ error: "Missing required fields" }),
@@ -37,10 +41,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { brandAttributes, companyName, companyIndustry, tags } = requestBody;
-    const prompt = `Take a deep breath and write strictly in pt-br a 20 seconds lyric of the company ${companyName}, field ${companyIndustry}, and have caracteristcs like: ${brandAttributes.join(
-      ", "
-    )}`;
+    const {
+      brandAttributes,
+      companyName,
+      companyIndustry,
+      tags,
+      musicStyle,
+      companyIndustryOther,
+      brandAttributesOther,
+      musicStyleOther,
+    } = requestBody;
+    const prompt = `Take a deep breath and write strictly in pt-br a 20 seconds lyric of the company ${companyName}, field ${
+      companyIndustryOther.length > 0 ? companyIndustryOther : companyIndustry
+    }, and have caracteristcs like: ${brandAttributes.join(", ")} ${
+      brandAttributesOther.length > 0 ? +"," + brandAttributesOther : ""
+    }`;
+
+    console.log("prompt:", prompt);
 
     const completion = await openai.chat.completions.create({
       messages: [
@@ -53,12 +70,10 @@ export async function POST(request: NextRequest) {
           content: prompt,
         },
       ],
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-2024-05-13",
     });
 
     const resultPrompt = completion.choices[0].message.content;
-
-    console.log("resultPrompt:", resultPrompt);
 
     if (!resultPrompt) {
       return new NextResponse(
@@ -72,9 +87,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const extraTags = musicStyleOther.length > 0 ? musicStyleOther : "";
+    const concatenatedTags = musicStyle.join(", ") + ", " + tags + extraTags;
+
     const sunoAiResponse = await createSoundtrack({
       lyrics: resultPrompt,
-      tags,
+      tags: concatenatedTags,
       title: companyName,
     });
 
