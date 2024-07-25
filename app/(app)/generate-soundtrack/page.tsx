@@ -14,6 +14,7 @@ import { CompanyForm } from "@/modules/generate-logo/components/forms/company-fo
 import { IndustryForm } from "@/modules/generate-logo/components/forms/industry-form";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
 import { BrandAttributeForm } from "@/modules/generate-soundtrack/components/forms/brand-attributes-form";
+import { StyleOfMusicForm } from "@/modules/generate-soundtrack/components/forms/style-of-music-form";
 import { TagsForm } from "@/modules/generate-soundtrack/components/forms/tags-form";
 
 import Link from "next/link";
@@ -47,6 +48,10 @@ export default function Page() {
     {
       formLabel: "Your brand attributes",
       form: <BrandAttributeForm setContinue={setCanContinue} />,
+    },
+    {
+      formLabel: "Style of Music",
+      form: <StyleOfMusicForm setContinue={setCanContinue} />,
     },
     {
       formLabel: "Your singer",

@@ -6,11 +6,13 @@ interface CompanyState {
   Industry: string;
   IndustryOther: string;
   Attributes: string[];
+  styleOfMusic: string[];
   tags: string;
   setName: (name: string) => void;
   setSlogan: (name: string) => void;
   setIndustry: (industry: string) => void;
   setIndustryOther: (industryOther: string) => void;
+  setStyleOfMusic: (styleOfMusic: string) => void;
   setAttributes: (attribute: string) => void;
   setTags: (tags: string) => void;
   resetCompanyStore: () => void;
@@ -22,6 +24,7 @@ const initialState = {
   Industry: "",
   IndustryOther: "",
   Attributes: [],
+  styleOfMusic: [],
   tags: "",
 };
 
@@ -36,6 +39,13 @@ export const useCompanyStore = create<CompanyState>((set) => ({
       Attributes: state.Attributes.includes(attribute)
         ? state.Attributes.filter((item) => item !== attribute)
         : [...state.Attributes, attribute],
+    }));
+  },
+  setStyleOfMusic: (styleOfMusic) => {
+    set((state) => ({
+      styleOfMusic: state.styleOfMusic.includes(styleOfMusic)
+        ? state.styleOfMusic.filter((item) => item !== styleOfMusic)
+        : [...state.styleOfMusic, styleOfMusic],
     }));
   },
   setTags: (tags) => set({ tags }),
