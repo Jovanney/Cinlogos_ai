@@ -16,6 +16,8 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
 import { createSoundTrack } from "@/http/create-soundtrack";
 import { SoundtrackResultModal } from "../soundtrack-result-modal";
+import MaleSinger from "@/public/maleSinger.webp";
+import FemaleSinger from "@/public/femaleSingerOption.webp";
 
 import TagCardOption from "../tag-card-option";
 
@@ -156,7 +158,7 @@ export function TagsForm({ setContinue }: TagsFormProps) {
                   <TagCardOption
                     title={"Female singer"}
                     description={""}
-                    image={"https://via.placeholder.com/500"}
+                    image={FemaleSinger.src}
                     onChange={setTags}
                     selectedOption={tags}
                     value={"female singer"}
@@ -164,7 +166,7 @@ export function TagsForm({ setContinue }: TagsFormProps) {
                   <TagCardOption
                     title={"Male singer"}
                     description={""}
-                    image={"https://via.placeholder.com/500"}
+                    image={MaleSinger.src}
                     selectedOption={tags}
                     onChange={setTags}
                     value={"male singer"}

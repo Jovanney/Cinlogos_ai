@@ -3,10 +3,10 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Image from "next/image";
 
 interface TagCardProps {
   title: string;
@@ -35,7 +35,7 @@ export default function TagCardOption({
       onClick={() => onChange(value)}
     >
       <CardHeader>
-        <img src={image} alt={title} />
+        <Image width={500} height={500} src={image} alt={title} />
       </CardHeader>
       <CardContent>
         <CardTitle>{title}</CardTitle>
