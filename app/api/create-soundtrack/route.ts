@@ -57,8 +57,6 @@ export async function POST(request: NextRequest) {
       brandAttributesOther.length > 0 ? +"," + brandAttributesOther : ""
     }`;
 
-    console.log("prompt:", prompt);
-
     const completion = await openai.chat.completions.create({
       messages: [
         {
