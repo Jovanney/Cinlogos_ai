@@ -173,6 +173,14 @@ export function TagsForm({ setContinue }: TagsFormProps) {
     );
   }
 
+  return (
+    <SoundtrackResultModal
+      open={!isPending}
+      companyName={companyName}
+      soundUrl={"asdasdasd"}
+    />
+  );
+
   if (isError) return <div>Error</div>;
 
   return (

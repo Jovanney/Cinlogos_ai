@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/animated-modal";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { saveAs } from "file-saver";
+// import { saveAs } from "file-saver";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AudioPlayer from "react-h5-audio-player";
@@ -23,30 +23,25 @@ export function SoundtrackResultModal({
   soundUrl,
   companyName,
 }: SoundtrackResultModalProps) {
-  const saveFile = () => {
-    saveAs(soundUrl, `${companyName}.mp3`);
-  };
   const pathname = usePathname();
   console.log("soundUrl:", soundUrl);
   return (
     <div className="py-40 flex items-center justify-center">
       <Modal>
         <ModalBody externalOpen={open}>
-          <ModalContent>
-            <div className="flex justify-center w-full">
-              <AudioPlayer autoPlay src={soundUrl} />
-            </div>
+          <ModalContent className="flex items-end justify-end">
+            <AudioPlayer autoPlay src={soundUrl} />
           </ModalContent>
           <ModalFooter className="space-x-2">
-            <Link href={`/generate-soundtrack?from=${pathname}`}>
-              <Button>Generate SoundTrack</Button>
+            <Link href={`/generate-logo?from=${pathname}`}>
+              <Button>Generate logo</Button>
             </Link>
-            <Link href={soundUrl}>
+            {/* <Link href={soundUrl}>
               <Button>Listen to the SoundTrack</Button>
-            </Link>
-            <Button className="hover:scale-105" onClick={saveFile}>
+            </Link> */}
+            {/* <Button className="hover:scale-105" onClick={saveFile}>
               Download
-            </Button>
+            </Button> */}
           </ModalFooter>
         </ModalBody>
       </Modal>
