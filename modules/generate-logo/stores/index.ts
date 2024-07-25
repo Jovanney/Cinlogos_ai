@@ -6,7 +6,9 @@ interface CompanyState {
   Industry: string;
   IndustryOther: string;
   Attributes: string[];
+  AttributesOther: string;
   styleOfMusic: string[];
+  styleOfMusicOther: string;
   tags: string;
   setName: (name: string) => void;
   setSlogan: (name: string) => void;
@@ -14,6 +16,8 @@ interface CompanyState {
   setIndustryOther: (industryOther: string) => void;
   setStyleOfMusic: (styleOfMusic: string) => void;
   setAttributes: (attribute: string) => void;
+  setAttributesOther: (attribute: string) => void;
+  setStyleOfMusicOther: (styleOfMusic: string) => void;
   setTags: (tags: string) => void;
   resetCompanyStore: () => void;
 }
@@ -24,7 +28,9 @@ const initialState = {
   Industry: "",
   IndustryOther: "",
   Attributes: [],
+  AttributesOther: "",
   styleOfMusic: [],
+  styleOfMusicOther: "",
   tags: "",
 };
 
@@ -41,6 +47,7 @@ export const useCompanyStore = create<CompanyState>((set) => ({
         : [...state.Attributes, attribute],
     }));
   },
+  setAttributesOther: (attribute) => set({ AttributesOther: attribute }),
   setStyleOfMusic: (styleOfMusic) => {
     set((state) => ({
       styleOfMusic: state.styleOfMusic.includes(styleOfMusic)
@@ -48,6 +55,8 @@ export const useCompanyStore = create<CompanyState>((set) => ({
         : [...state.styleOfMusic, styleOfMusic],
     }));
   },
+  setStyleOfMusicOther: (styleOfMusic) =>
+    set({ styleOfMusicOther: styleOfMusic }),
   setTags: (tags) => set({ tags }),
   resetCompanyStore: () => {
     set(initialState);

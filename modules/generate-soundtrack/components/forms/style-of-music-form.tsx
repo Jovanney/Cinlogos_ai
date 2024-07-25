@@ -1,7 +1,10 @@
 "use client";
 
 import AutoForm from "@/components/ui/auto-form";
-import { AutoFormInputComponentProps } from "@/components/ui/auto-form/types";
+import {
+  AutoFormInputComponentProps,
+  DependencyType,
+} from "@/components/ui/auto-form/types";
 import {
   FormControl,
   FormDescription,
@@ -26,15 +29,23 @@ interface StyleOfMusicFormProps {
 }
 
 export function StyleOfMusicForm({ setContinue }: StyleOfMusicFormProps) {
-  const { styleOfMusic, setstyleOfMusic } = useCompanyStore((state) => {
+  const {
+    styleOfMusic,
+    setstyleOfMusic,
+    setstyleOfMusicOther,
+    styleOfMusicOther,
+  } = useCompanyStore((state) => {
     return {
       styleOfMusic: state.styleOfMusic,
       setstyleOfMusic: state.setStyleOfMusic,
+      styleOfMusicOther: state.styleOfMusicOther,
+      setstyleOfMusicOther: state.setStyleOfMusicOther,
     };
   });
 
   const styleOfMusicSchema = z.object({
     styleOfMusic: z.array(z.string()).default(styleOfMusic),
+    styleOfMusicOther: z.string().optional().default(styleOfMusicOther),
   });
 
   return (
@@ -116,10 +127,28 @@ export function StyleOfMusicForm({ setContinue }: StyleOfMusicFormProps) {
           ),
         },
       }}
+      dependencies={[
+        {
+          sourceField: "styleOfMusic",
+          targetField: "styleOfMusicOther",
+          type: DependencyType.HIDES,
+          when: (value) => !styleOfMusic.includes("Other"),
+        },
+
+        {
+          sourceField: "styleOfMusic",
+          targetField: "styleOfMusicOther",
+          type: DependencyType.REQUIRES,
+          when: (value) => value === "Other",
+        },
+      ]}
       onSubmit={(value) => {
         if (!value.styleOfMusic) {
           setContinue(false);
         } else {
+          if (styleOfMusic.includes("Other") && value.styleOfMusicOther) {
+            setstyleOfMusicOther(value.styleOfMusicOther);
+          }
           setContinue(true);
         }
       }}

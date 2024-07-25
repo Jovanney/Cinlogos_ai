@@ -1,7 +1,10 @@
 "use client";
 
 import AutoForm from "@/components/ui/auto-form";
-import { AutoFormInputComponentProps } from "@/components/ui/auto-form/types";
+import {
+  AutoFormInputComponentProps,
+  DependencyType,
+} from "@/components/ui/auto-form/types";
 import {
   FormControl,
   FormDescription,
@@ -11,79 +14,32 @@ import {
 } from "@/components/ui/form";
 import React from "react";
 import { z } from "zod";
-import { useMutation } from "@tanstack/react-query";
-import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 import { useCompanyStore } from "@/modules/generate-logo/stores";
 import MultipleSelectWithImages from "@/modules/generate-logo/components/multiple-select-with-image";
-import { createSoundTrack } from "@/http/create-soundtrack";
-import { SoundtrackResultModal } from "../soundtrack-result-modal";
-
-type ResponseGeneratedSoundtrack = {
-  audio_url: string;
-};
+import OtherImage from "@/public/otherOption.webp";
 
 interface CompanyFormProps {
   setContinue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const loadingStates = [
-  {
-    text: "Composing your melody",
-  },
-  {
-    text: "Finding the perfect beat",
-  },
-  {
-    text: "Mixing harmonies",
-  },
-  {
-    text: "Layering the tracks",
-  },
-  {
-    text: "Balancing the volumes",
-  },
-  {
-    text: "Adding rhythm",
-  },
-  {
-    text: "Refining the tempo",
-  },
-  {
-    text: "Tuning the instruments",
-  },
-  {
-    text: "Creating transitions",
-  },
-  {
-    text: "Incorporating effects",
-  },
-  {
-    text: "Finalizing the mix",
-  },
-  {
-    text: "Polishing the sound",
-  },
-  {
-    text: "Mastering the track",
-  },
-  {
-    text: "Reviewing the composition",
-  },
-  {
-    text: "Your soundtrack is ready! 🎶",
-  },
-];
-
 export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
-  const { brandAttributes, setBrandAttributes } = useCompanyStore((state) => {
+  const {
+    brandAttributes,
+    setBrandAttributes,
+    brandAttributesOther,
+    setBrandAttributesOther,
+  } = useCompanyStore((state) => {
     return {
       brandAttributes: state.Attributes,
       setBrandAttributes: state.setAttributes,
+      brandAttributesOther: state.AttributesOther,
+      setBrandAttributesOther: state.setAttributesOther,
     };
   });
 
   const BrandAttributeSchema = z.object({
     brandAttributes: z.array(z.string()).default(brandAttributes),
+    brandAttributesOther: z.string().optional().default(brandAttributesOther),
   });
 
   return (
@@ -143,8 +99,8 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
                       image: "https://via.placeholder.com/150",
                     },
                     {
-                      value: "Others",
-                      image: "https://via.placeholder.com/150",
+                      value: "Other",
+                      image: OtherImage.src,
                     },
                   ]}
                   values={field.value}
@@ -163,10 +119,28 @@ export function BrandAttributeForm({ setContinue }: CompanyFormProps) {
           ),
         },
       }}
+      dependencies={[
+        {
+          sourceField: "brandAttributes",
+          targetField: "brandAttributesOther",
+          type: DependencyType.HIDES,
+          when: (value) => !brandAttributes.includes("Other"),
+        },
+
+        {
+          sourceField: "brandAttributes",
+          targetField: "brandAttributesOther",
+          type: DependencyType.REQUIRES,
+          when: (value) => value === "Other",
+        },
+      ]}
       onSubmit={(value) => {
         if (!value.brandAttributes) {
           setContinue(false);
         } else {
+          if (brandAttributes.includes("Other") && value.brandAttributesOther) {
+            setBrandAttributesOther(value.brandAttributesOther);
+          }
           setContinue(true);
         }
       }}
