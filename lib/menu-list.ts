@@ -54,19 +54,19 @@ export function getMenuList(pathname: string): Group[] {
             },
           ],
         },
-        {
-          href: "",
-          label: "Chat",
-          active: pathname.includes("/chat"),
-          icon: SquarePen,
-          submenus: [
-            {
-              href: "/chat",
-              label: "Ask about ...",
-              active: pathname === "/chat",
-            },
-          ],
-        },
+        // {
+        //   href: "",
+        //   label: "Chat",
+        //   active: pathname.includes("/chat"),
+        //   icon: SquarePen,
+        //   submenus: [
+        //     {
+        //       href: "/chat",
+        //       label: "Ask about ...",
+        //       active: pathname === "/chat",
+        //     },
+        //   ],
+        // },
       ],
     },
   ];

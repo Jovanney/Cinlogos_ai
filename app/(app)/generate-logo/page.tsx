@@ -40,10 +40,10 @@ export default function App() {
       formLabel: "Your company name",
       form: <CompanyForm setContinue={setCanContinue} />,
     },
-    {
-      formLabel: "Your company slogan",
-      form: <SloganForm setContinue={setCanContinue} />,
-    },
+    // {
+    //   formLabel: "Your company slogan",
+    //   form: <SloganForm setContinue={setCanContinue} />,
+    // },
     {
       formLabel: "Your company industry",
       form: <IndustryForm setContinue={setCanContinue} />,

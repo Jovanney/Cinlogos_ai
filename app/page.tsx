@@ -18,10 +18,12 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button className=" text-blue-800 bg-gray-100 border border-black hover:bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 px-6 py-3 rounded-md font-medium">
-              <Link href={"/chat"}>Generate your Logo</Link>
+              <Link href={"/generate-logo"}>Generate your Logo</Link>
             </Button>
             <Button className=" text-blue-800 bg-gray-100 border border-black hover:bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 px-6 py-3 rounded-md font-medium">
-              Create Soundtrack
+              <Link href={"/generate-soundtrack"}>
+                Generate your Soundtrack
+              </Link>
             </Button>
           </div>
         </div>
