@@ -75,6 +75,36 @@ const loadingStates = [
   {
     text: "Your soundtrack is ready! 🎶",
   },
+  {
+    text: "Analyzing the waveform",
+  },
+  {
+    text: "Enhancing the bass",
+  },
+  {
+    text: "Optimizing the treble",
+  },
+  {
+    text: "Synchronizing the beats",
+  },
+  {
+    text: "Applying reverb",
+  },
+  {
+    text: "Equalizing frequencies",
+  },
+  {
+    text: "Compressing the dynamics",
+  },
+  {
+    text: "Normalizing the audio",
+  },
+  {
+    text: "Rendering the final output",
+  },
+  {
+    text: "Your soundtrack is almost ready!",
+  },
 ];
 
 export function TagsForm({ setContinue }: TagsFormProps) {
