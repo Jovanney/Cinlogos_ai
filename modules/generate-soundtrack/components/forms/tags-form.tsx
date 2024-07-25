@@ -160,7 +160,6 @@ export function TagsForm({ setContinue }: TagsFormProps) {
       />
     );
   if (Array.isArray(responseGeneratedSoundtrack)) {
-    console.log("responseGeneratedSoundtrack:", responseGeneratedSoundtrack);
     return (
       <SoundtrackResultModal
         open={!isPending}
@@ -172,14 +171,6 @@ export function TagsForm({ setContinue }: TagsFormProps) {
       />
     );
   }
-
-  return (
-    <SoundtrackResultModal
-      open={!isPending}
-      companyName={companyName}
-      soundUrl={"asdasdasd"}
-    />
-  );
 
   if (isError) return <div>Error</div>;
 
